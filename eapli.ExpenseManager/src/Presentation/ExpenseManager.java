@@ -4,20 +4,21 @@
  */
 package Presentation;
 
+import eapli.ExpenseBootstarpper;
+
 /**
  *
  * @author
  */
 public class ExpenseManager {
 
-      /**
-       * @param args the command line arguments
-       */
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        ExpenseBootstarpper boot = new ExpenseBootstarpper();
+        MainMenu menu = new MainMenu();
+        menu.mainLoop();
 
-      public static void main(String[] args) {
-            MainMenu menu = new MainMenu();
-            menu.mainLoop();
-
-      }
+    }
 }
-
