@@ -21,6 +21,7 @@ public class ExpenseRepository implements IExpenseRepository {
     public ExpenseRepository() {
     }
 
+      @Override
     public void saveExpense(Expense exp) {
         if (exp == null) {
             throw new IllegalArgumentException();
@@ -29,10 +30,12 @@ public class ExpenseRepository implements IExpenseRepository {
 
     }
 
+      @Override
     public List<Expense> getAllExpenses() {
         return Collections.unmodifiableList(listExpense);
     }
 
+      @Override
     public Expense getLastExpense() {
         Expense exp = null;
         Expense copy = null;
