@@ -11,15 +11,16 @@ import java.util.Date;
 
 /**
  *
- * @author 
+ * @author
  */
 public class ExpenseRegisterController {
-       public ExpenseRegisterController() {
-      }
 
-      public void registerExpense(String desc, Date date, BigDecimal amount) {
-            Expense expense = new Expense(desc, date, amount);
-            ExpenseRepository controller=new ExpenseRepository();
-            controller.saveExpense(expense);
-      }
+    public ExpenseRegisterController() {
+    }
+
+    public void registerExpense(String desc, Date date, BigDecimal amount) {
+        Expense expense = new Expense(desc, date, amount);
+        ExpenseRepository controller = new ExpenseRepository();
+        controller.saveExpense(expense);
+    }
 }
