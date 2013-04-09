@@ -37,7 +37,7 @@ public class MainMenu {
                     break;
                 case 4:
                     DefPaymentMeansUI defPaymentMeansUI = new DefPaymentMeansUI();
-                    defPaymentMeansUI.loop();
+                    defPaymentMeansUI.run();
                     break;
             }
         } while (op != 0);
