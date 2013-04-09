@@ -39,6 +39,10 @@ public class MainMenu {
                     DefPaymentMeansUI defPaymentMeansUI = new DefPaymentMeansUI();
                     defPaymentMeansUI.loop();
                     break;
+                case 5:
+                    ExpenseConsultMonthUI expConsultMonthUI = new ExpenseConsultMonthUI();
+                    expConsultMonthUI.DisplayTotalExpensesMonth();
+                    break;
             }
         } while (op != 0);
 
@@ -52,6 +56,7 @@ public class MainMenu {
         System.out.println("2. Show expenses");
         System.out.println("3. Define Expense Type");
         System.out.println("4. Define Payment Means");
+        System.out.println("5. Consult Expenses a Month");
         System.out.println("0. Exit\n\n");
 
         int option = Console.readInteger("Please choose an option");
