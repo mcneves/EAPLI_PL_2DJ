@@ -6,10 +6,28 @@ package Model;
 
 /**
  *
- * @author Paulo Costa
+ * @author
  */
-public class PaymentMeans {
-    
-    
-    
+public abstract class PaymentMeans {
+
+    private static int cont = 0;
+    private int meansID;
+    protected int typeID;
+    protected String description;
+
+    public PaymentMeans() {
+        meansID = ++cont;
+    }
+
+    public int getMeansID() {
+        return meansID;
+    }
+
+    public int getTypeID() {
+        return typeID;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }
