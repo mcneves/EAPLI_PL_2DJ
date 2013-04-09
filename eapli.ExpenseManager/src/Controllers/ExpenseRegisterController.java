@@ -5,22 +5,22 @@
 package Controllers;
 
 import Model.Expense;
+import Model.ExpenseType;
 import Persistence.ExpenseRepository;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  *
- * @author
+ * @author 
  */
 public class ExpenseRegisterController {
+       public ExpenseRegisterController() {
+      }
 
-    public ExpenseRegisterController() {
-    }
-
-    public void registerExpense(String desc, Date date, BigDecimal amount) {
-        Expense expense = new Expense(desc, date, amount);
-        ExpenseRepository controller = new ExpenseRepository();
-        controller.saveExpense(expense);
-    }
+      public void registerExpense(String desc, Date date, BigDecimal amount, ExpenseType exptype, String comment) {
+            Expense expense = new Expense(desc, date, amount, exptype, comment);
+            ExpenseRepository controller=new ExpenseRepository();
+            controller.saveExpense(expense);
+      }
 }
