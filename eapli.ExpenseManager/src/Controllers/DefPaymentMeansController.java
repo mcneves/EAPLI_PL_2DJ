@@ -5,6 +5,7 @@
 package Controllers;
 
 import Model.Cash;
+import Model.Cheque;
 import Model.CreditCard;
 import Model.DebitCard;
 import Model.PaymentMeans;
@@ -36,9 +37,14 @@ public class DefPaymentMeansController {
         repo.saveMeans(dc);
     }
 
+    public void createMeansCheque(int num, String desc, String bank) {
+        Cheque cheque = new Cheque(num, desc, bank);
+        repo.saveMeans(cheque);
+    }
+
     public void showMeans() {
         System.out.println("\n");
-        for(PaymentMeans o : repo.getAllMeans()){
+        for (PaymentMeans o : repo.getAllMeans()) {
             System.out.println(o.getDescription());
         }
     }

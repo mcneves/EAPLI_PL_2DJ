@@ -11,14 +11,10 @@ import eapli.util.Console;
  *
  * @author
  */
-public class DefPaymentMeansUI /*extends BaseUI*/ {
+public class DefPaymentMeansUI {
 
     DefPaymentMeansController controller = new DefPaymentMeansController();
 
-    /*@Override
-     public BaseController controller() {
-     return controller;
-     }*/
     public DefPaymentMeansUI() {
     }
 
@@ -44,6 +40,10 @@ public class DefPaymentMeansUI /*extends BaseUI*/ {
                     break;
                 case 3:
                     createMeansDebitUI();
+                    System.out.println("Mean successfully created");
+                    break;
+                case 4:
+                    createMeansChequeUI();
                     System.out.println("Mean successfully created");
                     break;
                 case 5:
@@ -82,5 +82,13 @@ public class DefPaymentMeansUI /*extends BaseUI*/ {
         int num = Console.readInteger("Number:");
         String bank = Console.readLine("Bank:");
         controller.createMeansDebit(num, desc, bank);
+    }
+
+    public void createMeansChequeUI() {
+        System.out.println("* * *  DEFINE A CHEQUE BOOK * * *\n");
+        String desc = Console.readLine("Description:");
+        int num = Console.readInteger("Number:");
+        String bank = Console.readLine("Bank:");
+        controller.createMeansCheque(num, desc, bank);
     }
 }
