@@ -11,14 +11,10 @@ import eapli.util.Console;
  *
  * @author
  */
-public class DefPaymentMeansUI /*extends BaseUI*/ {
+public class DefPaymentMeansUI {
 
     DefPaymentMeansController controller = new DefPaymentMeansController();
 
-    /*@Override
-     public BaseController controller() {
-     return controller;
-     }*/
     public DefPaymentMeansUI() {
     }
 
@@ -46,8 +42,16 @@ public class DefPaymentMeansUI /*extends BaseUI*/ {
                     createMeansDebitUI();
                     System.out.println("Mean successfully created");
                     break;
+                case 4:
+                    createMeansChequeUI();
+                    System.out.println("Mean successfully created");
+                    break;
                 case 5:
                     controller.showMeans();
+                    break;
+                case 6:
+                    controller.deleteMeans();
+                    System.out.println("Mean successfully deleted");
                     break;
                 default:
                     System.out.println("Wrong option. Please repeat");
@@ -63,6 +67,7 @@ public class DefPaymentMeansUI /*extends BaseUI*/ {
         System.out.println("3. Define debit card");
         System.out.println("4. Define cheque");
         System.out.println("5. Show Payment Means");
+        System.out.println("6. Delete Payment Mean");
         System.out.println("0. End define means\n\n");
         int op = Console.readInteger("Choose an option");
         return op;
@@ -82,5 +87,13 @@ public class DefPaymentMeansUI /*extends BaseUI*/ {
         int num = Console.readInteger("Number:");
         String bank = Console.readLine("Bank:");
         controller.createMeansDebit(num, desc, bank);
+    }
+
+    public void createMeansChequeUI() {
+        System.out.println("* * *  DEFINE A CHEQUE * * *\n");
+        String desc = Console.readLine("Description:");
+        int num = Console.readInteger("Number:");
+        String bank = Console.readLine("Bank:");
+        controller.createMeansCheque(num, desc, bank);
     }
 }

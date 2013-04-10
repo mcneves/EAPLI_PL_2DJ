@@ -70,6 +70,6 @@ public class Expense {
     public ExpenseType getExpenseType(){   
         return exptype;
     }
-    
+
     
 }
