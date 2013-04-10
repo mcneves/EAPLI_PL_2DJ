@@ -70,6 +70,10 @@ public class Expense {
     public ExpenseType getExpenseType(){   
         return exptype;
     }
+    
+      public BigDecimal getAmount() {
+        return amount;
+    }
 
     
 }
