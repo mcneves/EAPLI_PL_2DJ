@@ -37,7 +37,7 @@ public class MainMenu {
                     break;
                 case 4:
                     DefPaymentMeansUI defPaymentMeansUI = new DefPaymentMeansUI();
-                    defPaymentMeansUI.loop();
+                    defPaymentMeansUI.run();
                     break;
                 case 5:
                     ExpenseConsultMonthUI expConsultMonthUI = new ExpenseConsultMonthUI();
