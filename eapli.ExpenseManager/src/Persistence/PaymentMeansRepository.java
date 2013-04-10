@@ -30,4 +30,8 @@ public class PaymentMeansRepository {
     public List<PaymentMeans> getAllMeans() {
         return Collections.unmodifiableList(listMeans);
     }
+
+    public void deleteMeans(int del) {
+        listMeans.remove(del);
+    }
 }

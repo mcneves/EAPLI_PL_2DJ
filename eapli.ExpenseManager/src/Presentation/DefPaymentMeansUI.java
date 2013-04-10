@@ -49,6 +49,10 @@ public class DefPaymentMeansUI {
                 case 5:
                     controller.showMeans();
                     break;
+                case 6:
+                    controller.deleteMeans();
+                    System.out.println("Mean successfully deleted");
+                    break;
                 default:
                     System.out.println("Wrong option. Please repeat");
                     break;
@@ -63,6 +67,7 @@ public class DefPaymentMeansUI {
         System.out.println("3. Define debit card");
         System.out.println("4. Define cheque");
         System.out.println("5. Show Payment Means");
+        System.out.println("6. Delete Payment Mean");
         System.out.println("0. End define means\n\n");
         int op = Console.readInteger("Choose an option");
         return op;
@@ -85,7 +90,7 @@ public class DefPaymentMeansUI {
     }
 
     public void createMeansChequeUI() {
-        System.out.println("* * *  DEFINE A CHEQUE BOOK * * *\n");
+        System.out.println("* * *  DEFINE A CHEQUE * * *\n");
         String desc = Console.readLine("Description:");
         int num = Console.readInteger("Number:");
         String bank = Console.readLine("Bank:");

@@ -10,6 +10,7 @@ import Model.CreditCard;
 import Model.DebitCard;
 import Model.PaymentMeans;
 import Persistence.PaymentMeansRepository;
+import eapli.util.Console;
 
 /**
  *
@@ -43,9 +44,18 @@ public class DefPaymentMeansController {
     }
 
     public void showMeans() {
+        int cont = 0;
         System.out.println("\n");
         for (PaymentMeans o : repo.getAllMeans()) {
-            System.out.println(o.getDescription());
+            System.out.println(++cont + "\t-\t" + o.getDescription());
         }
+    }
+
+    public void deleteMeans() {
+        int del;
+        System.out.println("Listing Means");
+        showMeans();
+        del = Console.readInteger("Choose the mean to eliminate");
+        repo.deleteMeans(--del);
     }
 }
