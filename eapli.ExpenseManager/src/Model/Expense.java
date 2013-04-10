@@ -62,4 +62,14 @@ public class Expense {
             return s;
 
       }
+
+    public Date getDateOccurred() {
+        return dateOccurred;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+    
+    
 }
