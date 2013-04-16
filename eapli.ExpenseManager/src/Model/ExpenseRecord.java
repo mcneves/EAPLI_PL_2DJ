@@ -1,61 +1,16 @@
-<<<<<<< HEAD
-
-=======
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
->>>>>>> 0fc207e86fe3c055e7d3360a5bd0a6bf73e32f2f
 package Model;
 
 import eapli.util.DateTime;
 import java.math.BigDecimal;
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 
-public class ExpenseRecord {
-    
-    private List < Expense> list = new ArrayList <>();
-    
-    
-    public ExpenseRecord() {
-    }
-    
-    public ExpenseRecord(List<Expense> list)
-    {        
-        this.list= list;        
-    }
-    
-    public BigDecimal getExpenseMonth(int month)
-    {
-        BigDecimal total= new BigDecimal("0");
-       
-        
-        for(Expense exp : list)
-        {            
-            Calendar cal;
-            cal = DateTime.dateToCalendar(exp.getDateOccurred());            
-            
-            int temp = cal.get(Calendar.MONTH);            
-            if (temp == (month-1)) {
-                total = total.add(exp.getAmount());
-            }
-        }     
-               
-        return total;
-    }
-}
-=======
-import java.util.Calendar;
-import java.util.*;
-
-/**
- *
- * @author sv02
- */
 public class ExpenseRecord
     {
 
@@ -184,7 +139,6 @@ public class ExpenseRecord
 
         return listTypeExpenses;
     }
-        
-        
-    }
->>>>>>> 0fc207e86fe3c055e7d3360a5bd0a6bf73e32f2f
+                
+}
+

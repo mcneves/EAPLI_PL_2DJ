@@ -16,4 +16,6 @@ public interface IPaymentMeansRepository {
     void saveMeans(PaymentMeans pm);
     
     List<PaymentMeans> getAllMeans();
+    
+    void deleteMeans(int del);
 }
