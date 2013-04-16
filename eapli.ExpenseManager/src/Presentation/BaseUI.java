@@ -13,13 +13,17 @@ import java.util.Locale;
  *
  * @author sv02
  */
-public class BaseUI
+public abstract class BaseUI
     {
+    
+    protected abstract BaseController controller();
+    public abstract void header();
+    public abstract void run();
 
     public BaseUI() {
     };
         
-        public void show() {
+    public void show() {
         this.header();
         this.run();
         this.showBalances();
@@ -27,21 +31,17 @@ public class BaseUI
     }
 
     public void showBalances() {
-        BaseController baseController = new BaseController();
         BigDecimal wb;
         BigDecimal mb;
 
-        wb = baseController.getThisWeekExpenditure();
-        mb = baseController.getThisMonthExpenditure();
+        wb = controller().getThisWeekExpenditure();
+        mb = controller().getThisMonthExpenditure();
 
         NumberFormat n = NumberFormat.getCurrencyInstance(Locale.FRANCE);
         System.out.println("This week's expenditures  are: " + n.format(wb.doubleValue()));
         System.out.println("This months' expenditures are: " + n.format(mb.doubleValue()));
     }
-
-    public void run() {
-    }
-
-    public void header() {
-    }
+    
+    
+    
     }
