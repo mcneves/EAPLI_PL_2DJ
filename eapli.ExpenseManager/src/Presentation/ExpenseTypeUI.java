@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.ExpenseTypeController;
 import Model.ExpenseType;
 import eapli.util.Console;
@@ -13,13 +14,19 @@ import java.util.List;
  *
  * @author Pedro
  */
-public class ExpenseTypeUI {//extends BaseUI
+public class ExpenseTypeUI extends BaseUI{
     
     public ExpenseTypeUI(){}
     
+    ExpenseTypeController controller = new ExpenseTypeController();
+    
+    public BaseController controller(){
+        return controller;
+    }
+    
+    @Override
     public void run()
     {
-        System.out.println("***Define Expense Type***\n");
         String desc = Console.readLine("Description:\n");
         
         ExpenseTypeController controller = new ExpenseTypeController();
@@ -47,6 +54,6 @@ public class ExpenseTypeUI {//extends BaseUI
     
     public void header()
     {
-        System.out.println("EXPENSE TYPES");
+        System.out.println("*** REGISTER A TYPE OF EXPENSE ***");
     }
 }

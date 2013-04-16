@@ -15,7 +15,7 @@ import java.util.Date;
  *
  * @author 
  */
-public class ExpenseRegisterController {
+public class ExpenseRegisterController extends BaseController{
     
     public ExpenseRegisterController() {
     }
