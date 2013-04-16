@@ -26,6 +26,16 @@ public class Income extends Transaction{
     public String toString() {
         return super.toString();
     }
+
+    @Override
+    public BigDecimal getAmount() {
+        return super.getAmount();
+    }
+
+    @Override
+    public Date getDateOccurred() {
+        return super.getDateOccurred();
+    }
     
     
     
