@@ -43,6 +43,14 @@ public class MainMenu {
                     ExpenseConsultMonthUI expConsultMonthUI = new ExpenseConsultMonthUI();
                     expConsultMonthUI.DisplayTotalExpensesMonth();
                     break;
+                case 6:
+                    IncomeRegisterUI incui = new IncomeRegisterUI();
+                    incui.run();
+                    break;
+                case 7:
+                    ShowIncomesUI showIncomeUI = new ShowIncomesUI();
+                    showIncomeUI.loop();
+                    break;
             }
         } while (op != 0);
 
@@ -57,6 +65,8 @@ public class MainMenu {
         System.out.println("3. Define Expense Type");
         System.out.println("4. Define Payment Means");
         System.out.println("5. Consult Expenses a Month");
+        System.out.println("6. Register an income");
+        System.out.println("7. Show incomes");
         System.out.println("0. Exit\n\n");
 
         int option = Console.readInteger("Please choose an option");
