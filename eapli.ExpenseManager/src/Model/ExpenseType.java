@@ -10,7 +10,7 @@ package Model;
  */
 public class ExpenseType {
     
-    private String description;
+    private String description;    
     
     public ExpenseType(String description)
     {

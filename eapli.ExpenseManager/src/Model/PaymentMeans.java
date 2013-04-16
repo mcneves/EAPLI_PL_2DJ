@@ -19,15 +19,24 @@ public abstract class PaymentMeans {
         meansID = ++cont;
     }
 
+    //distinguir dois cartões de crédito
     public int getMeansID() {
         return meansID;
     }
-
+    
+    //tipos de pagamento: cash, creditcard, debitcard, check
     public int getTypeID() {
         return typeID;
     }
 
     public String getDescription() {
         return description;
+    }
+    
+    @Override
+    public String toString()
+    {
+        String s="Payment Mean: "+this.description;
+        return s;
     }
 }

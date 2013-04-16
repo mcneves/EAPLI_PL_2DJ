@@ -6,13 +6,11 @@ package Model;
 
 import eapli.util.DateTime;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.*;
+import java.util.List;
 
-/**
- *
- * @author sv02
- */
+
 public class ExpenseRecord
     {
 
