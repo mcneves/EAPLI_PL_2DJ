@@ -5,7 +5,9 @@
 package Controllers;
 
 import Model.Cash;
-import Persistence.PaymentMeansRepository;
+import Model.PaymentMeans;
+import Persistence.PersistenceRegistry;
+import java.util.List;
 
 /**
  *
@@ -18,7 +20,11 @@ public class DefPaymentMeansController {
 
     public void createMeansCash() {
         Cash cash = new Cash();
-        PaymentMeansRepository repo = new PaymentMeansRepository();
-        repo.saveMeans(cash);
+        PersistenceRegistry.getInstance().paymentMeansRepository().saveMeans(cash);
+    }
+    
+    public List<PaymentMeans> ListAllMeans()
+    {
+        return PersistenceRegistry.getInstance().paymentMeansRepository().getAllMeans();
     }
 }

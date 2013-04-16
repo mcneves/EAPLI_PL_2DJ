@@ -21,11 +21,12 @@ public class Expense {
     private BigDecimal amount;
     private ExpenseType exptype;
     private String comment;
-
+    private PaymentMeans pay;
+    
     protected Expense() {
     }
 
-    public Expense(String description, Date dateOccurred, BigDecimal amount, ExpenseType exptype, String comment) {
+    public Expense(String description, Date dateOccurred, BigDecimal amount, ExpenseType exptype, String comment, PaymentMeans pay) {
         if (description == null || dateOccurred == null || amount == null) {
             throw new IllegalArgumentException();
         }
@@ -38,10 +39,11 @@ public class Expense {
         this.exptype=exptype;
         this.amount = amount;
         this.comment=comment;
+        this.pay=pay;
     }
 
-    public Expense(String description, int year, int month, int day, BigDecimal amount, ExpenseType exptype, String comment) {
-        this(description, DateTime.newDate(year, month, day), amount, exptype, comment);
+    public Expense(String description, int year, int month, int day, BigDecimal amount, ExpenseType exptype, String comment, PaymentMeans pay) {
+        this(description, DateTime.newDate(year, month, day), amount, exptype, comment, pay);
     }
 
     public Expense(Expense exp) {
@@ -50,6 +52,7 @@ public class Expense {
         amount = exp.amount;
         exptype=exp.exptype;
         comment=exp.comment;
+        pay=exp.pay;
     }
     @Override
       public String toString() {
@@ -60,6 +63,5 @@ public class Expense {
                     "\nType: "+this.exptype+"\nComment: "+this.comment+
                     "\nDate created: " + this.dateOccurred;
             return s;
-
       }
 }

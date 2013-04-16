@@ -13,13 +13,14 @@ import java.util.List;
  *
  * @author
  */
-public class PaymentMeansRepository {
+public class PaymentMeansRepository implements IPaymentMeansRepository{
 
     private static List<PaymentMeans> listMeans = new ArrayList<>();
 
     public PaymentMeansRepository() {
     }
 
+    @Override
     public void saveMeans(PaymentMeans pm) {
         if (pm == null) {
             throw new IllegalArgumentException();
@@ -27,7 +28,8 @@ public class PaymentMeansRepository {
         listMeans.add(pm);
     }
 
+    @Override
     public List<PaymentMeans> getAllMeans() {
         return Collections.unmodifiableList(listMeans);
-    }
+    }    
 }

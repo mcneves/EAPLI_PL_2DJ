@@ -5,7 +5,9 @@
 package Presentation;
 
 import Controllers.DefPaymentMeansController;
+import Model.PaymentMeans;
 import eapli.util.Console;
+import java.util.List;
 
 /**
  *
@@ -19,6 +21,11 @@ public class DefPaymentMeansUI {
     public void loop() {
         int op;
         DefPaymentMeansController controller = new DefPaymentMeansController();
+        DefPaymentMeansController dpmc = new DefPaymentMeansController();
+        List<PaymentMeans> listMeans = dpmc.ListAllMeans();
+        DefPaymentMeansUI defui = new DefPaymentMeansUI();
+        defui.displayList(listMeans);
+        
         do {
             op = menu();
             switch (op) {
@@ -28,6 +35,9 @@ public class DefPaymentMeansUI {
                 case 1:
                     controller.createMeansCash();
                     System.out.println("Mean successfully created");
+                    break;
+                case 5:
+                    displayList(listMeans);
                     break;
                 default:
                     System.out.println("Wrong option. Please repeat");
@@ -42,8 +52,18 @@ public class DefPaymentMeansUI {
         System.out.println("2. Define credit card");
         System.out.println("3. Define debit card");
         System.out.println("4. Define cheque");
+        System.out.println("5. Show Payment means");
         System.out.println("0. End define means\n\n");
         int op = Console.readInteger("Choose an option");
         return op;
+    }
+    
+    public void displayList(List<PaymentMeans> listMeans){
+        int i=0;
+        System.out.println("List of Payment Means\n");
+        for (PaymentMeans payMean : listMeans) {
+            i=i+1;
+            System.out.println("Mean "+i+"\n" + payMean);
+        }
     }
 }
