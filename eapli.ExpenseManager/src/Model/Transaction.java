@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import eapli.util.DateTime;
@@ -10,23 +6,21 @@ import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- *
- * @author
- */
-public class Expense {
-
+public abstract class Transaction {
+    
     private String description;
     private Date dateOccurred;
     private BigDecimal amount;
-    private ExpenseType exptype;
+    private TransactionType transtype;
     private String comment;
-    private PaymentMeans pay;
-
-    protected Expense() {
+    
+    protected Transaction() {
+        
     }
+    
+    
 
-    public Expense(String description, Date dateOccurred, BigDecimal amount, ExpenseType exptype, String comment, PaymentMeans pay) {
+    public Transaction(String description, Date dateOccurred, BigDecimal amount, TransactionType transtype, String comment) {
         if (description == null || dateOccurred == null || amount == null) {
             throw new IllegalArgumentException();
         }
@@ -36,24 +30,21 @@ public class Expense {
         }
         this.description = description;
         this.dateOccurred=dateOccurred;
-        this.exptype=exptype;
+        this.transtype=transtype;
         this.amount = amount;
         this.comment=comment;
-        this.pay=pay;
     }
 
-    public Expense(String description, int year, int month, int day, BigDecimal amount, ExpenseType exptype, String comment, PaymentMeans pay) {
-        this(description, DateTime.newDate(year, month, day), amount, exptype, comment, pay);
+    public Transaction(String description, int year, int month, int day, BigDecimal amount, TransactionType transtype, String comment) {
+        this(description, DateTime.newDate(year, month, day), amount, transtype, comment);
     }
-    
-    public Expense(Expense exp) {
-        description = exp.description;
-        dateOccurred=exp.dateOccurred;
-        amount = exp.amount;
-        exptype=exp.exptype;
-        comment=exp.comment;
-        pay=exp.pay;
 
+    public Transaction(Transaction trans) {
+        description = trans.description;
+        dateOccurred=trans.dateOccurred;
+        amount = trans.amount;
+        transtype=trans.transtype;
+        comment=trans.comment;
     }
     @Override
       public String toString() {
@@ -61,22 +52,19 @@ public class Expense {
             double doubleAmount = this.amount.doubleValue();
             String s = "Description:" + this.description + 
                     "\nAmount:" + n.format(doubleAmount)+
-                    "\nType: "+this.exptype+"\nComment: "+this.comment+
+                    "\nType: "+this.transtype+"\nComment: "+this.comment+
                     "\nDate created: " + this.dateOccurred;
             return s;
 
-    }
+      }
     
-    public Date getDateOccurred(){   
+   
+    public Date getDateOccurred() {
         return dateOccurred;
     }
-    
-    public ExpenseType getExpenseType(){   
-        return exptype;
-    }
-    
-      public BigDecimal getAmount() {
+
+    public BigDecimal getAmount() {
         return amount;
     }
-
+    
 }
