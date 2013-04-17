@@ -19,10 +19,10 @@ public class DefPaymentMeansUI extends BaseUI{
     public DefPaymentMeansUI() {
     }
     
-    @Override
+    /*@Override
     public BaseController controller(){
         return controller;
-    }
+    }*/
     
     @Override
     public void header(){
