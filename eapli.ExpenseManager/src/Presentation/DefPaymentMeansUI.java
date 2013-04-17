@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.DefPaymentMeansController;
 import Model.PaymentMeans;
 import eapli.util.Console;
@@ -17,6 +18,13 @@ import Persistence.PersistenceRegistry;
 public class DefPaymentMeansUI extends BaseUI{
 
     public DefPaymentMeansUI() {
+    }
+
+    
+    //Alterado por André Pinto 1090534 para poder compilar o projeto! qd quizeres apaga isto :D 
+    @Override
+    protected BaseController controller() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
     /*@Override

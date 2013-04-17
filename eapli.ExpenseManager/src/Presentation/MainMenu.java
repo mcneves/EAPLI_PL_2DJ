@@ -37,11 +37,11 @@ public class MainMenu {
                     break;
                 case 4:
                     DefPaymentMeansUI defPaymentMeansUI = new DefPaymentMeansUI();
-                    defPaymentMeansUI.loop();
+                    defPaymentMeansUI.show();
                     break;
                 case 5:
                     ExpenseConsultMonthUI expConsultMonthUI = new ExpenseConsultMonthUI();
-                    expConsultMonthUI.DisplayTotalExpensesMonth();
+                    expConsultMonthUI.show();
                     break;
                 case 6:
                     IncomeRegisterUI incui = new IncomeRegisterUI();
