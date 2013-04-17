@@ -14,12 +14,23 @@ import Persistence.PersistenceRegistry;
  *
  * @author
  */
-public class DefPaymentMeansUI {
+public class DefPaymentMeansUI extends BaseUI{
 
     public DefPaymentMeansUI() {
     }
+    
+    @Override
+    public BaseController controller(){
+        return controller;
+    }
+    
+    @Override
+    public void header(){
+     System.out.print("Define Payment Means");
+     }
 
-    public void loop() {
+    @Override    
+    public void run() {
         int op;
         DefPaymentMeansController controller = new DefPaymentMeansController();
         List<PaymentMeans> listMeans = controller.ListAllMeans();
