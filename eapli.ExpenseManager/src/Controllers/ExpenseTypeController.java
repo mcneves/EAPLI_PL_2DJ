@@ -24,7 +24,6 @@ public class ExpenseTypeController extends BaseController{
     
     public List<ExpenseType> ListAllTypes()
     {
-        ExpenseTypeRepository repo = new ExpenseTypeRepository();
-        return repo.ListAllTypes();
+        return PersistenceRegistry.getInstance().expenseTypeRepository().ListAllTypes();
     }
 }
