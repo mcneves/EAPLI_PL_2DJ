@@ -78,5 +78,17 @@ public class Expense {
       public BigDecimal getAmount() {
         return amount;
     }
+      
+       public String getDescription() {
+        return description;
+    }
+       
+        public PaymentMeans getPaymentMeans() {
+        return pay;
+    }
 
+         public String getComment() {
+        return comment;
+    }
+        
 }
