@@ -6,24 +6,23 @@ package Controllers;
 
 import Model.Income;
 import Persistence.IncomeRepository;
+import Persistence.PersistenceRegistry;
 import java.util.List;
 
 /**
  *
  * @author André Pinto
  */
-public class ShowIncomeController {
+public class ShowIncomeController extends BaseController{
     
     public ShowIncomeController() {
       }
 
       public List<Income> getAllIncome() {
-            IncomeRepository repo = new IncomeRepository();
-            return repo.getAllIncome();
+            return PersistenceRegistry.getInstance().incomeRepository().getAllIncome();
       }
 
       public Income getLastIncome() {
-            IncomeRepository repo = new IncomeRepository();
-            return repo.getLastIncome();
+            return PersistenceRegistry.getInstance().incomeRepository().getLastIncome();
       }
 }
