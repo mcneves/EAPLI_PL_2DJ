@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author
  */
-public class ShowExpensesController {
+public class ShowExpensesController extends BaseController{
 
       public ShowExpensesController() {
       }
