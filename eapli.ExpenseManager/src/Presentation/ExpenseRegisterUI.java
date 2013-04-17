@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.DefPaymentMeansController;
 import eapli.util.Console;
 import java.math.BigDecimal;
@@ -19,13 +20,19 @@ import java.util.List;
  *
  * @author
  */
-public class ExpenseRegisterUI {//extends BaseUI
+public class ExpenseRegisterUI extends BaseUI{
 
-      public ExpenseRegisterUI() {
+    public ExpenseRegisterUI(){}
+      
+      ExpenseRegisterController controller = new ExpenseRegisterController();
+      
+      public BaseController controller(){
+          return controller;
       }
 
+      @Override
       public void run() {
-            System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
+
             String desc = Console.readLine("\nDescription:");
             Date date = Console.readDate("\nWhen (dd-MM-yyyy):");
             double value = Console.readDouble("\nAmount:");
@@ -76,9 +83,10 @@ public class ExpenseRegisterUI {//extends BaseUI
 //          return expRegController;
 //      }
       
+      @Override
       public void header()
       {
-          System.out.println("EXPENSE REGISTER");
+          System.out.println("*** REGISTER AN EXPENSE ***");
       }
 
     private static class PaymentMeansImpl extends PaymentMeans {
