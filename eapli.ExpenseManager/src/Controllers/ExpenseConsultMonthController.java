@@ -4,11 +4,12 @@ package Controllers;
 import Model.Expense;
 import Model.ExpenseRecord;
 import Persistence.ExpenseRepository;
+import Persistence.PersistenceRegistry;
 import java.math.BigDecimal;
 import java.util.List;
 
 
-public class ExpenseConsultMonthController {
+public class ExpenseConsultMonthController extends BaseController{
     public ExpenseConsultMonthController() {
     }
     
@@ -19,8 +20,7 @@ public class ExpenseConsultMonthController {
         List<Expense> list ;
         
         // vai buscar todas as despesas ao repositorio
-        ExpenseRepository repo = new ExpenseRepository();
-        list = repo.getAllExpenses();
+        list = PersistenceRegistry.getInstance().expenseRepository().getAllExpenses();
         
         //envia a lista de despesas par ao ExpenseRecord e pede-lhe o total de um determinado mês
         ExpenseRecord expRec = new ExpenseRecord(list);
