@@ -23,9 +23,12 @@ public class ExpenseConsultMonthController {
         list = repo.getAllExpenses();
         
         //envia a lista de despesas par ao ExpenseRecord e pede-lhe o total de um determinado mês
-        ExpenseRecord expRec = new ExpenseRecord(list);
-        total = expRec.getExpenseMonth(month);
-           
+              
+        
+            ExpenseRecord expRec = new ExpenseRecord(list);
+            total = expRec.getExpenseMonth(month);
+        
+        
         return total;
         
     }

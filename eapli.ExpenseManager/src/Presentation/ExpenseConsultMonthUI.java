@@ -13,10 +13,18 @@ public class ExpenseConsultMonthUI {
 
         int month = Console.readInteger("Month:");
         ExpenseConsultMonthController expConMonController = new ExpenseConsultMonthController();
-
-
-        System.out.println("No mês " + month + " gastou " + round(expConMonController.getExpensesMonth(month), 2, true) + "€");
-        System.out.println("Press <Enter> to continue!");
+        
+        BigDecimal temp = expConMonController.getExpensesMonth(month);
+        
+      
+        if (temp.signum() != 0) {
+            System.out.println("No mês " + month + " gastou " + round(temp, 2, true) + "€");
+            System.out.println("Press <Enter> to continue!");
+        } else {
+            System.out.println("Não existem despesas neste mês!");
+            System.out.println("Press <Enter> to continue!");
+        }
+        
         try {
             System.in.read();
         } catch (Exception exc) {
