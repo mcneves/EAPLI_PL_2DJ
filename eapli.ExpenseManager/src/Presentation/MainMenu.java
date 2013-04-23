@@ -45,11 +45,11 @@ public class MainMenu {
                     break;
                 case 6:
                     IncomeRegisterUI incui = new IncomeRegisterUI();
-                    incui.run();
+                    incui.show();
                     break;
                 case 7:
                     ShowIncomesUI showIncomeUI = new ShowIncomesUI();
-                    showIncomeUI.loop();
+                    showIncomeUI.show();
                     break;
             }
         } while (op != 0);
