@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.DefPaymentMeansController;
 import Model.PaymentMeans;
 import eapli.util.Console;
@@ -14,12 +15,30 @@ import Persistence.PersistenceRegistry;
  *
  * @author
  */
-public class DefPaymentMeansUI {
+public class DefPaymentMeansUI extends BaseUI{
 
     public DefPaymentMeansUI() {
     }
 
-    public void loop() {
+    
+    //Alterado por André Pinto 1090534 para poder compilar o projeto! qd quizeres apaga isto :D 
+    @Override
+    protected BaseController controller() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    /*@Override
+    public BaseController controller(){
+        return controller;
+    }*/
+    
+    @Override
+    public void header(){
+     System.out.print("Define Payment Means");
+     }
+
+    @Override    
+    public void run() {
         int op;
         DefPaymentMeansController controller = new DefPaymentMeansController();
         List<PaymentMeans> listMeans = controller.ListAllMeans();

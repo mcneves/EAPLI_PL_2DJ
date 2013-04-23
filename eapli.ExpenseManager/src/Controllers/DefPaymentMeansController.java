@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author
  */
-public class DefPaymentMeansController {
+public class DefPaymentMeansController extends BaseController{
 
     public DefPaymentMeansController() {
     }

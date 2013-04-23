@@ -107,18 +107,19 @@ public class ExpenseRecord
 
     public BigDecimal getExpenseMonth(int month) {
         BigDecimal total = new BigDecimal("0");
+        
 
-
-        for (Expense exp : list) {
+        for (Expense exp : listExpenses) {
             Calendar cal;
             cal = DateTime.dateToCalendar(exp.getDateOccurred());
 
             int temp = cal.get(Calendar.MONTH);
             if (temp == (month - 1)) {
                 total = total.add(exp.getAmount());
+                
             }
         }
-
+        
         return total;
     }  
     

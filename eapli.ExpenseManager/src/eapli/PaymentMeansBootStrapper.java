@@ -13,17 +13,19 @@ import Persistence.PaymentMeansRepository;
 
 /**
  *
- * @author i060752
+ * @author
  */
 public class PaymentMeansBootStrapper {
-    
+
     static {
-        
         IPaymentMeansRepository repo = new PaymentMeansRepository();
-        
+
         repo.saveMeans(new Cash());
-        repo.saveMeans(new CreditCard(123456789, "Cartao Credito 1", "BES"));
-        repo.saveMeans(new DebitCard(987654321, "Cartao Debito 1", "BES"));
-        repo.saveMeans(new Cheque(1, "Cheque 1", "BES"));
-    }    
+        repo.saveMeans(new CreditCard(123, "My credit card", "My bank"));
+        repo.saveMeans(new CreditCard(321, "My other credit card", "My other bank"));
+        repo.saveMeans(new DebitCard(456, "My debit card", "My bank"));
+        repo.saveMeans(new DebitCard(654, "My other debit card", "My other bank"));
+        repo.saveMeans(new Cheque(789, "My first cheque", "My bank"));
+        repo.saveMeans(new Cheque(987, "My second cheque", "My other bank"));
+    }
 }
