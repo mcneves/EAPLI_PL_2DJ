@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 public class ExpenseConsultMonthUI extends BaseUI {
 
-    BaseController controller = new ExpenseConsultMonthController();
+    private BaseController controller = new ExpenseConsultMonthController();
     
     public ExpenseConsultMonthUI() {
     }

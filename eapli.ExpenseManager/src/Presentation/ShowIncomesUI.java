@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.ShowIncomeController;
 import Model.Income;
 import eapli.util.Console;
@@ -13,12 +14,27 @@ import java.util.List;
  *
  * @author André Pinto
  */
-public class ShowIncomesUI {
+public class ShowIncomesUI extends BaseUI{
+    
+    BaseController controller = new ShowIncomeController();
     
     public ShowIncomesUI() {
       }
 
-      public void loop() {
+    @Override
+    protected BaseController controller() {
+        return controller;
+    }
+
+    @Override
+    public void header() {
+        System.out.println("SHOW INCOMES");
+        
+    }    
+    
+    
+    @Override
+      public void run() {
             int op;
             Income income=null;
             ShowIncomeController controller = new ShowIncomeController();
