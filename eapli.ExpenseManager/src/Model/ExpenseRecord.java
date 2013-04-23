@@ -120,27 +120,24 @@ public class ExpenseRecord
         }
 
         return total;
-    }
-    
+    }  
     
     
     public List<Expense> getListOfExpensesMonth(int month) {
-        
-         List<Expense> listExpenses = new ArrayList<Expense>();
 
-        for (Expense exp : list) {
+        List<Expense> newList = new ArrayList<Expense>();
+        for (Expense exp : listExpenses) {
             Calendar cal;
             cal = DateTime.dateToCalendar(exp.getDateOccurred());
 
             int temp = cal.get(Calendar.MONTH);
             if (temp == (month - 1)) {
-                listExpenses.add(exp);
+                newList.add(exp);
             }
         }
-
-        return listExpenses;
+        return newList;
     }
-    
+  
     
         public List<Expense> getExpensesByType(List<Expense> listExpense, ExpenseType exptype) {
 
