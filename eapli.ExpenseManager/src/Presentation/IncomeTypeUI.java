@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.IncomeTypeController;
 import Model.IncomeType;
 import eapli.util.Console;
@@ -13,9 +14,20 @@ import java.util.List;
  *
  * @author André Pinto
  */
-public class IncomeTypeUI {
-    public IncomeTypeUI(){}
+public class IncomeTypeUI extends BaseUI{
     
+    private BaseController controller = new IncomeTypeController();
+    
+    public IncomeTypeUI(){}
+
+    @Override
+    protected BaseController controller() {
+        return controller;
+    }
+    
+    
+    
+    @Override
     public void run()
     {
         System.out.println("***Define Income Type***\n");
@@ -44,6 +56,7 @@ public class IncomeTypeUI {
 //          return controller;
 //      }
     
+    @Override
     public void header()
     {
         System.out.println("INCOME TYPES");
