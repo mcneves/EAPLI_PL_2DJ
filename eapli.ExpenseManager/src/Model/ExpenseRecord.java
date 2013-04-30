@@ -147,7 +147,7 @@ public class ExpenseRecord
         // percorrer listExpense
         for (Expense e : listExpense) {
             // verificar igualdade
-            if (e.getExpenseType().getDescription() == exptype.getDescription()) {
+            if (e.getExpenseType().getDescription().equals(exptype.getDescription())) {
                 //adicionar quando igual
                 listTypeExpenses.add(e);
             }
