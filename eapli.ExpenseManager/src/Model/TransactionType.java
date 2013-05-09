@@ -21,5 +21,12 @@ public abstract class TransactionType {
          String s = "Description:" + this.description;
          return s;
      }
+
+     
+    public String getDescription() {
+        return description;
+    }
+     
+     
     
 }

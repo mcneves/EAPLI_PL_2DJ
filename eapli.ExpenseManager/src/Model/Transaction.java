@@ -6,6 +6,9 @@ import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Locale;
 
+
+//@Entity
+//@Inheritance (strategy=InheritanceType.SINGLE_TABLE)
 public abstract class Transaction {
     
     private String description;
@@ -16,9 +19,7 @@ public abstract class Transaction {
     
     protected Transaction() {
         
-    }
-    
-    
+    }   
 
     public Transaction(String description, Date dateOccurred, BigDecimal amount, TransactionType transtype, String comment) {
         if (description == null || dateOccurred == null || amount == null) {
@@ -65,6 +66,18 @@ public abstract class Transaction {
 
     public BigDecimal getAmount() {
         return amount;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public TransactionType getTranstype() {
+        return transtype;
     }
     
 }
