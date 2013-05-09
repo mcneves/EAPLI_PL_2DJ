@@ -6,6 +6,7 @@ package Model;
 
 import eapli.util.DateTime;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.*;
 
@@ -35,45 +36,20 @@ public class ExpenseRecord
 
         BigDecimal total = new BigDecimal(0);
         Expense temp;
-        int weekMinValue = 0;
-        int weekMaxValue = 0;
-        Calendar cal2 = Calendar.getInstance();
-        switch (cal2.get(Calendar.DAY_OF_WEEK)) {
-            case Calendar.SUNDAY:
-                weekMinValue = cal2.get(Calendar.DAY_OF_YEAR) - 6;
-                weekMaxValue = cal2.get(Calendar.DAY_OF_YEAR);
-                break;
-            case Calendar.SATURDAY:
-                weekMinValue = cal2.get(Calendar.DAY_OF_YEAR) - 5;
-                weekMaxValue = cal2.get(Calendar.DAY_OF_YEAR) + 1;
-                break;
-            case Calendar.FRIDAY:
-                weekMinValue = cal2.get(Calendar.DAY_OF_YEAR) - 4;
-                weekMaxValue = cal2.get(Calendar.DAY_OF_YEAR) + 2;
-                break;
-            case Calendar.THURSDAY:
-                weekMinValue = cal2.get(Calendar.DAY_OF_YEAR) - 3;
-                weekMaxValue = cal2.get(Calendar.DAY_OF_YEAR) + 3;
-                break;
-            case Calendar.WEDNESDAY:
-                weekMinValue = cal2.get(Calendar.DAY_OF_YEAR) - 2;
-                weekMaxValue = cal2.get(Calendar.DAY_OF_YEAR) + 4;
-                break;
-            case Calendar.TUESDAY:
-                weekMinValue = cal2.get(Calendar.DAY_OF_YEAR) - 1;
-                weekMaxValue = cal2.get(Calendar.DAY_OF_YEAR) + 5;
-                break;
-            case Calendar.MONDAY:
-                weekMinValue = cal2.get(Calendar.DAY_OF_YEAR);
-                weekMaxValue = cal2.get(Calendar.DAY_OF_YEAR) + 6;
-                break;
-        }
+        Calendar currentCalendar = Calendar.getInstance();
+        currentCalendar.setFirstDayOfWeek(Calendar.MONDAY);
+        currentCalendar.setMinimalDaysInFirstWeek(4);
 
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
+        Calendar expenseCalendar = Calendar.getInstance();
         for (int i = 0; i < listExpenses.size(); i++) {
             temp = listExpenses.get(i);
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(temp.getDateOccurred());
-            if (cal.get(Calendar.DAY_OF_YEAR) <= weekMaxValue && cal.get(Calendar.DAY_OF_YEAR) >= weekMinValue) {
+            Date dateOccurred = temp.getDateOccurred();
+            int year = Integer.parseInt(simpleDateFormat.format(dateOccurred)) + 1900;
+            expenseCalendar.set(year, dateOccurred.getMonth(), dateOccurred.getDate());
+            expenseCalendar.setFirstDayOfWeek(Calendar.MONDAY);
+            expenseCalendar.setMinimalDaysInFirstWeek(4);
+            if (expenseCalendar.get(Calendar.WEEK_OF_YEAR) == currentCalendar.get(Calendar.WEEK_OF_YEAR)) {
                 total = total.add(temp.getAmount());
             }
 
@@ -86,28 +62,24 @@ public class ExpenseRecord
     public BigDecimal getThisMonthExpenditure() {
         BigDecimal total = new BigDecimal(0);
         Expense temp;
-        int currentMonth = DateTime.currentMonth();
-        int monthNumber;
+        int currentMonth = Calendar.getInstance().get(Calendar.MONTH);
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
         for (int i = 0; i < listExpenses.size(); i++) {
             temp = listExpenses.get(i);
             Calendar cal = Calendar.getInstance();
             cal.setTime(temp.getDateOccurred());
-            monthNumber = cal.get(Calendar.MONTH) + 1;
-            if (monthNumber == currentMonth) {
+
+            if (currentMonth == cal.get(Calendar.MONTH) && currentYear == cal.get(Calendar.YEAR)) {
                 total = total.add(temp.getAmount());
             }
-
-
         }
-
         return total;
-
     }
 
     public BigDecimal getExpenseMonth(int month) {
         BigDecimal total = new BigDecimal("0");
-        
+
 
         for (Expense exp : listExpenses) {
             Calendar cal;
@@ -116,13 +88,13 @@ public class ExpenseRecord
             int temp = cal.get(Calendar.MONTH);
             if (temp == (month - 1)) {
                 total = total.add(exp.getAmount());
-                
+
             }
         }
-        
+
         return total;
-    }  
-    
+    }
+
     
     public List<Expense> getListOfExpensesMonth(int month) {
 
@@ -138,9 +110,9 @@ public class ExpenseRecord
         }
         return newList;
     }
-  
+
     
-        public List<Expense> getExpensesByType(List<Expense> listExpense, ExpenseType exptype) {
+    public List<Expense> getExpensesByType(List<Expense> listExpense, ExpenseType exptype) {
 
         List<Expense> listTypeExpenses = new ArrayList<Expense>();
 
@@ -157,4 +129,4 @@ public class ExpenseRecord
     }
         
         
-}
+    }
