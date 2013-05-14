@@ -9,18 +9,26 @@ import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Locale;
+import javax.persistence.*;
 
 /**
  *
  * @author
  */
+@Entity
 public class Expense {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String description;
+    private int id;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateOccurred;
     private BigDecimal amount;
+    @ManyToOne
     private ExpenseType exptype;
     private String comment;
+    @OneToOne
     private PaymentMeans pay;
 
     protected Expense() {
