@@ -26,7 +26,7 @@ public class ExpenseBootstarpper {
         IExpenseTypeRepository trepo = new ExpenseTypeRepository();
         IPaymentMeansRepository prepo = new PaymentMeansRepository();
 
-        ExpenseType vec[] = new ExpenseType[4];
+       /* ExpenseType vec[] = new ExpenseType[4];
         PaymentMeans arr[] = new PaymentMeans[7];
 
         for (int i = 0; i < 7; i++) {
@@ -34,12 +34,12 @@ public class ExpenseBootstarpper {
                 vec[i] = trepo.ListAllTypes().get(i);
             }
             arr[i] = prepo.getAllMeans().get(i);
-        }
+        }*/
 
-        repo.saveExpense(new Expense("Autocarro", 2013, 3, 4, new BigDecimal(2.4), vec[2], "", arr[1]));
-        repo.saveExpense(new Expense("Almoço", 2013, 3, 5, new BigDecimal(12.4), vec[1], "", arr[2]));
-        repo.saveExpense(new Expense("Sapatilhas", 2013, 3, 4, new BigDecimal(123.4), vec[0], "", arr[4]));
-        repo.saveExpense(new Expense("Cinema", 2013, 3, 4, new BigDecimal(5.0), vec[3], "", arr[6]));
+        repo.saveExpense(new Expense("Autocarro", 2013, 3, 4, new BigDecimal(2.4), trepo.ListAllTypes().get(2), "", prepo.getAllMeans().get(1)));
+        repo.saveExpense(new Expense("Almoço", 2013, 3, 5, new BigDecimal(12.4), trepo.ListAllTypes().get(1), "", prepo.getAllMeans().get(2)));
+        repo.saveExpense(new Expense("Sapatilhas", 2013, 3, 4, new BigDecimal(123.4), trepo.ListAllTypes().get(0), "", prepo.getAllMeans().get(4)));
+        repo.saveExpense(new Expense("Cinema", 2013, 3, 4, new BigDecimal(5.0), trepo.ListAllTypes().get(3), "", prepo.getAllMeans().get(6)));
 
     }
 }
