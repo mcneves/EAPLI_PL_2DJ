@@ -14,15 +14,31 @@ import java.util.Locale;
  *
  * @author
  */
-public class Expense extends Transaction{
-    
+public class Expense {
+
+    private String description;
+    private Date dateOccurred;
+    private BigDecimal amount;
+    private ExpenseType exptype;
+    private String comment;
     private PaymentMeans pay;
 
     protected Expense() {
     }
 
     public Expense(String description, Date dateOccurred, BigDecimal amount, ExpenseType exptype, String comment, PaymentMeans pay) {
-        super(description, dateOccurred, amount, exptype, comment);
+        if (description == null || dateOccurred == null || amount == null) {
+            throw new IllegalArgumentException();
+        }
+        // cannot record a negative expense or a zero EUR expense
+        if (amount.signum() == -1 || amount.signum() == 0) {
+            throw new IllegalArgumentException();
+        }
+        this.description = description;
+        this.dateOccurred=dateOccurred;
+        this.exptype=exptype;
+        this.amount = amount;
+        this.comment=comment;
         this.pay=pay;
     }
 
@@ -31,48 +47,53 @@ public class Expense extends Transaction{
     }
     
     public Expense(Expense exp) {
-        super(exp);
+        description = exp.description;
+        dateOccurred=exp.dateOccurred;
+        amount = exp.amount;
+        exptype=exp.exptype;
+        comment=exp.comment;
         pay=exp.pay;
 
     }
     @Override
       public String toString() {
             NumberFormat n = NumberFormat.getCurrencyInstance(Locale.FRANCE);
-            double doubleAmount = super.getAmount().doubleValue();
-            String s = "Description:" + super.getDescription() + 
+            double doubleAmount = this.amount.doubleValue();
+            String s = "Description:" + this.description + 
                     "\nAmount:" + n.format(doubleAmount)+
-                    "\nType: "+(ExpenseType)super.getTranstype()+"\nComment: "+super.getComment()+
-                    "\nDate created: " + super.getDateOccurred();
+                    "\nType: "+this.exptype+"\nComment: "+this.comment+
+                    "\nDate created: " + this.dateOccurred;
             return s;
 
     }
     
-    @Override
     public Date getDateOccurred(){   
-        return super.getDateOccurred();
+        return dateOccurred;
     }
     
     public ExpenseType getExpenseType(){   
-        return (ExpenseType)super.getTranstype();
+        return exptype;
     }
     
-    @Override
       public BigDecimal getAmount() {
-        return super.getAmount();
-    }
-      
-    @Override
-       public String getDescription() {
-        return super.getDescription();
-    }
-       
-        public PaymentMeans getPaymentMeans() {
-        return pay;
+        return amount;
     }
 
-    @Override
-         public String getComment() {
-        return super.getComment();
+    public String getComment() {
+        return comment;
     }
-        
+
+    public String getDescription() {
+        return description;
+    }
+
+    public ExpenseType getExptype() {
+        return exptype;
+    }
+
+    public PaymentMeans getPay() {
+        return pay;
+    }
+      
+      
 }
