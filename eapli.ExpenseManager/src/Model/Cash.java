@@ -4,15 +4,19 @@
  */
 package Model;
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author
  */
-public class Cash extends PaymentMeans {
+@Entity
+public class Cash extends PaymentMeans
+    {
 
     public Cash() {
         super();
         typeID = 1;
         description = "Cash";
     }
-}
+    }
