@@ -8,30 +8,31 @@ package Model;
  *
  * @author Pedro
  */
-public class ExpenseType extends TransactionType{
+public class ExpenseType {
     
     
+    private String description;
     
     public ExpenseType(String description)
     {
-        super(description);
+        this.description = description;
     }
     
     public ExpenseType(ExpenseType exptype)
     {
-        super(exptype);
+        description = exptype.description;
     }
    
      @Override
      public String toString()
      {
-         String s = "Description:" + super.getDescription();
+         String s = "Description:" + this.description;
          return s;
      }
 
-    @Override
+     
     public String getDescription() {
-        return super.getDescription();
+        return description;
     }
      
      
