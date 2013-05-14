@@ -24,13 +24,12 @@ public abstract class PaymentMeans implements Serializable
 
     private static int cont = 0;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int meansID;
     protected int typeID;
     protected String description;
 
     public PaymentMeans() {
-        //meansID = ++cont;
+        meansID = ++cont;
     }
 
     //distinguir dois cartões de crédito
