@@ -9,7 +9,7 @@ import Model.Cheque;
 import Model.CreditCard;
 import Model.DebitCard;
 import Persistence.IPaymentMeansRepository;
-import Persistence.PaymentMeansRepository;
+import Persistence.PersistenceFactory;
 
 /**
  *
@@ -18,14 +18,14 @@ import Persistence.PaymentMeansRepository;
 public class PaymentMeansBootStrapper {
 
     static {
-        IPaymentMeansRepository repo = new PaymentMeansRepository();
+        IPaymentMeansRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository();
 
         repo.saveMeans(new Cash());
-        repo.saveMeans(new CreditCard(123, "My credit card", "My bank"));
-        repo.saveMeans(new CreditCard(321, "My other credit card", "My other bank"));
-        repo.saveMeans(new DebitCard(456, "My debit card", "My bank"));
-        repo.saveMeans(new DebitCard(654, "My other debit card", "My other bank"));
-        repo.saveMeans(new Cheque(789, "My first cheque", "My bank"));
-        repo.saveMeans(new Cheque(987, "My second cheque", "My other bank"));
+        repo.saveMeans(new CreditCard(123, "CartaoCredito1", "Banco1"));
+        repo.saveMeans(new CreditCard(321, "CartaoCredito2", "Banco2"));
+        repo.saveMeans(new DebitCard(456, "CartaoDebito", "Banco1"));
+        repo.saveMeans(new DebitCard(654, "CartaoDebito2", "Banco2"));
+        repo.saveMeans(new Cheque(789, "Cheque1", "Banco1"));
+        repo.saveMeans(new Cheque(987, "Cheque2", "Banco2"));
     }
 }
