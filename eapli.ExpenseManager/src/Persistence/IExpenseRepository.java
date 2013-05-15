@@ -5,6 +5,7 @@
 package Persistence;
 
 import Model.Expense;
+import Model.ExpenseType;
 import java.util.List;
 
 /**
@@ -18,4 +19,6 @@ public interface IExpenseRepository {
     List<Expense> getAllExpenses();
 
     Expense getLastExpense();
+    
+    ExpenseType getByDescription(String desc);
 }
