@@ -5,6 +5,7 @@
 package Model;
 
 import eapli.util.DateTime;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Date;
@@ -16,7 +17,7 @@ import javax.persistence.*;
  * @author
  */
 @Entity
-public class Expense {
+public class Expense implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
