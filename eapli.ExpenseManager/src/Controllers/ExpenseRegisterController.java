@@ -25,6 +25,6 @@ public class ExpenseRegisterController extends BaseController{
     public void registerExpense(String desc, Date date, BigDecimal amount, ExpenseType exptype, String comment, PaymentMeans pay) {
             Expense expense = new Expense(desc, date, amount, exptype, comment, pay);
             IExpenseRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getExpenseRepository();
-            PersistenceRegistry.getInstance().expenseRepository().saveExpense(expense);
+            repo.saveExpense(expense);
     }
 }
