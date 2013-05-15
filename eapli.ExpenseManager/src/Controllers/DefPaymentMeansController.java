@@ -10,7 +10,7 @@ import Model.CreditCard;
 import Model.DebitCard;
 import Model.PaymentMeans;
 import Persistence.PaymentMeansRepository;
-import Persistence.PersistenceRegistry;
+import Persistence.PersistenceFactory;
 import eapli.util.Console;
 import java.util.List;
 
@@ -25,27 +25,27 @@ public class DefPaymentMeansController extends BaseController{
 
     public void createMeansCash() {
         Cash cash = new Cash();
-        PersistenceRegistry.getInstance().paymentMeansRepository().saveMeans(cash);
+        PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository().saveMeans(cash);
     }
 
     public void createMeansCredit(int num, String desc, String bank) {
         CreditCard cc = new CreditCard(num, desc, bank);
-        PersistenceRegistry.getInstance().paymentMeansRepository().saveMeans(cc);
+        PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository().saveMeans(cc);
     }
 
     public void createMeansDebit(int num, String desc, String bank) {
         DebitCard dc = new DebitCard(num, desc, bank);
-        PersistenceRegistry.getInstance().paymentMeansRepository().saveMeans(dc);
+        PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository().saveMeans(dc);
     }
 
     public void createMeansCheque(int num, String desc, String bank) {
         Cheque cheque = new Cheque(num, desc, bank);
-        PersistenceRegistry.getInstance().paymentMeansRepository().saveMeans(cheque);
+        PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository().saveMeans(cheque);
     }
 
      public List<PaymentMeans> ListAllMeans()
     {
-        return PersistenceRegistry.getInstance().paymentMeansRepository().getAllMeans();
+        return PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository().getAllMeans();
     }
     
 
@@ -54,6 +54,6 @@ public class DefPaymentMeansController extends BaseController{
         System.out.println("Listing Means");
         ListAllMeans();
         del = Console.readInteger("Choose the mean to eliminate");
-        PersistenceRegistry.getInstance().paymentMeansRepository().deleteMeans(--del);
+        PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository().deleteMeans(--del);
     }
 }
