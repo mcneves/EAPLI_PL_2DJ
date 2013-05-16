@@ -9,6 +9,7 @@ import Model.Cheque;
 import Model.CreditCard;
 import Model.DebitCard;
 import Persistence.IPaymentMeansRepository;
+import Persistence.PaymentMeansRepository;
 import Persistence.PersistenceFactory;
 
 /**

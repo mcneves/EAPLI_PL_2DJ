@@ -5,6 +5,7 @@
 package Persistence;
 
 import Model.Expense;
+import Model.ExpenseType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -48,4 +49,10 @@ public class ExpenseRepository implements IExpenseRepository {
         }
         return copy;
     }
+
+    @Override
+    public ExpenseType getByDescription(String desc) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+      
 }

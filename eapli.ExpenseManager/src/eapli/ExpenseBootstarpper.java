@@ -6,8 +6,11 @@ package eapli;
 
 import Model.Expense;
 import Persistence.IExpenseRepository;
+import Persistence.ExpenseRepository;
 import Persistence.IExpenseTypeRepository;
+import Persistence.ExpenseTypeRepository;
 import Persistence.IPaymentMeansRepository;
+import Persistence.PaymentMeansRepository;
 import Persistence.PersistenceFactory;
 import java.math.BigDecimal;
 
@@ -21,6 +24,7 @@ public class ExpenseBootstarpper {
         IExpenseRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getExpenseRepository();
         IExpenseTypeRepository trepo = PersistenceFactory.getInstance().buildRepositoryFactory().getExpenseTypeRepository();
         IPaymentMeansRepository prepo = PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository();
+
 
         repo.saveExpense(new Expense("Autocarro", 2013, 3, 4, new BigDecimal(2.4), trepo.ListAllTypes().get(2), "", prepo.getAllMeans().get(1)));
         repo.saveExpense(new Expense("Almoço", 2013, 3, 5, new BigDecimal(12.4), trepo.ListAllTypes().get(1), "", prepo.getAllMeans().get(2)));

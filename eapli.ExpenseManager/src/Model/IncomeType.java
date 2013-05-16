@@ -1,7 +1,9 @@
 
 package Model;
 
+import javax.persistence.Entity;
 
+@Entity
 public class IncomeType extends TransactionType{
 
     public IncomeType(String description) {
