@@ -24,7 +24,7 @@ public class PersistenceFactory {
             p.load(propFile);
             System.setProperties(p);
         } catch(Exception e) {
-            System.setProperty("PERSIST", "persistence.JpaRepositoryFactory");
+            System.setProperty("PERSIST", "Persistence.JpaRepositoryFactory");
             //System.setProperty("PERSIST", "persistence.InMemoryRepositoryFactory");
         }
     }
