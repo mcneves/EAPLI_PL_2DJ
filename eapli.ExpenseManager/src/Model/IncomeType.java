@@ -4,7 +4,7 @@ package Model;
 import javax.persistence.Entity;
 
 @Entity
-public class IncomeType extends TransactionType{
+public class IncomeType extends MovementType{
 
     public IncomeType() {
     }
@@ -14,7 +14,7 @@ public class IncomeType extends TransactionType{
         super(description);
     }
 
-    public IncomeType(TransactionType transtype) {
+    public IncomeType(MovementType transtype) {
         super(transtype);
     }
 

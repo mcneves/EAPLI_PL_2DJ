@@ -5,17 +5,17 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class TransactionType implements Serializable {
+public abstract class MovementType implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String description;
 
-    public TransactionType() {
+    public MovementType() {
     }
 
-    public TransactionType(String description) {
+    public MovementType(String description) {
         if (description.equals("")) {
             throw new IllegalArgumentException("Error: description empty!");
         }
@@ -23,7 +23,7 @@ public abstract class TransactionType implements Serializable {
         this.description = description;
     }
 
-    public TransactionType(TransactionType transtype) {
+    public MovementType(MovementType transtype) {
         description = transtype.description;
     }
 
