@@ -41,12 +41,16 @@ public class ExpenseRegisterUI extends BaseUI{
 
             List<ExpenseType> list=controller.ListAllTypes();
 
-            
-            displayList(list);
+            if(list.isEmpty())
+            {
+                System.out.println("Lista Vazia");
+            }else{
+                displayList(list);
+            }
             
             int op=Console.readInteger("\nChoose an option");
             
-            ExpenseType exptype=new ExpenseType(list.get(op-1));
+            ExpenseType exptype=list.get(op-1);
             
             System.out.println("\nPayment mean:");
 
@@ -56,7 +60,7 @@ public class ExpenseRegisterUI extends BaseUI{
             
             int opPM = Console.readInteger("\nChoose an option");
             
-            PaymentMeans pay=new PaymentMeansImpl(listMeans.get(opPM-1));
+            PaymentMeans pay=listMeans.get(opPM-1);
                         
             System.out.println("\nDo you wish to leave a comment?");
             String opComment=Console.readLine("\n(y/n)");
@@ -77,13 +81,7 @@ public class ExpenseRegisterUI extends BaseUI{
       {
           System.out.println("*** REGISTER AN EXPENSE ***");
       }
-
-    private static class PaymentMeansImpl extends PaymentMeans {
-
-        public PaymentMeansImpl(PaymentMeans get) {
-            super();
-        }
-    }    
+ 
     public void displayList(List<ExpenseType> list)
     {
         int i=0;

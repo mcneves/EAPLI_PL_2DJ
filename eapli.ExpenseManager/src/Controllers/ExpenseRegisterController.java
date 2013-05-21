@@ -32,7 +32,7 @@ public class ExpenseRegisterController extends BaseController{
     
     public List<ExpenseType> ListAllTypes()
     {
-        return PersistenceRegistry.getInstance().expenseTypeRepository().ListAllTypes();
+        return PersistenceFactory.getInstance().buildRepositoryFactory().getExpenseTypeRepository().ListAllTypes();
     }
     
     public List<PaymentMeans> ListAllMeans()
