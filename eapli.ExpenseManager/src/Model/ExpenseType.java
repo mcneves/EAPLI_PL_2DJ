@@ -4,14 +4,24 @@
  */
 package Model;
 
+import java.io.Serializable;
+import javax.persistence.*;
+
 /**
  *
  * @author Pedro
  */
-public class ExpenseType {
+
+@Entity
+public class ExpenseType implements Serializable {
     
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String description;
+
+    public ExpenseType() {
+    }
     
     public ExpenseType(String description)
     {
