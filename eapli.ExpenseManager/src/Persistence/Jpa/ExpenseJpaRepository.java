@@ -24,7 +24,8 @@ public class ExpenseJpaRepository extends JpaGeneric<Expense, Integer> implement
       
       @Override
       public Expense getLastExpense(){
-            return null;
+          List<Expense> expList = all();
+            return expList.get(expList.size()-1);
       }
       
       @Override
