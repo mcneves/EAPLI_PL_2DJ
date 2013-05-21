@@ -9,6 +9,7 @@ import Model.Cheque;
 import Model.CreditCard;
 import Model.DebitCard;
 import Model.PaymentMeans;
+import Persistence.IPaymentMeansRepository;
 import Persistence.PaymentMeansRepository;
 import Persistence.PersistenceFactory;
 import eapli.util.Console;
@@ -25,27 +26,32 @@ public class DefPaymentMeansController extends BaseController{
 
     public void createMeansCash() {
         Cash cash = new Cash();
-        PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository().saveMeans(cash);
+        IPaymentMeansRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository();
+        repo.saveMeans(cash);
     }
 
     public void createMeansCredit(int num, String desc, String bank) {
         CreditCard cc = new CreditCard(num, desc, bank);
-        PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository().saveMeans(cc);
+        IPaymentMeansRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository();
+        repo.saveMeans(cc);
     }
 
     public void createMeansDebit(int num, String desc, String bank) {
         DebitCard dc = new DebitCard(num, desc, bank);
-        PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository().saveMeans(dc);
+        IPaymentMeansRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository();
+        repo.saveMeans(dc);
     }
 
     public void createMeansCheque(int num, String desc, String bank) {
         Cheque cheque = new Cheque(num, desc, bank);
-        PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository().saveMeans(cheque);
+        IPaymentMeansRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository();
+        repo.saveMeans(cheque);
     }
 
      public List<PaymentMeans> ListAllMeans()
     {
-        return PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository().getAllMeans();
+        IPaymentMeansRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository();
+        return repo.getAllMeans();
     }
     
 
