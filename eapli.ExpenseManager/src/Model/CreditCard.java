@@ -4,14 +4,21 @@
  */
 package Model;
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author
  */
+
+@Entity
 public class CreditCard extends PaymentMeans {
 
     private int num;
     private String bank;
+
+    public CreditCard() {
+    }
 
     public CreditCard(int num, String desc, String bank) {
         super();

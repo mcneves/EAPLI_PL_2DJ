@@ -15,36 +15,32 @@ import Persistence.PersistenceRegistry;
  *
  * @author
  */
-public class DefPaymentMeansUI extends BaseUI{
+public class DefPaymentMeansUI extends BaseUI
+    {
+
+    DefPaymentMeansController basecontroller = new DefPaymentMeansController();
 
     public DefPaymentMeansUI() {
     }
 
-    
-    //Alterado por André Pinto 1090534 para poder compilar o projeto! qd quizeres apaga isto :D 
     @Override
     protected BaseController controller() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return basecontroller;
     }
-    
-    /*@Override
-    public BaseController controller(){
-        return controller;
-    }*/
-    
-    @Override
-    public void header(){
-     System.out.print("Define Payment Means");
-     }
 
-    @Override    
+    @Override
+    public void header() {
+        System.out.print("Define Payment Means");
+    }
+
+    @Override
     public void run() {
         int op;
-        DefPaymentMeansController controller = new DefPaymentMeansController();
-        List<PaymentMeans> listMeans = controller.ListAllMeans();
+        DefPaymentMeansController defcontroller = new DefPaymentMeansController();
+        List<PaymentMeans> listMeans = defcontroller.ListAllMeans();
         DefPaymentMeansUI defui = new DefPaymentMeansUI();
         defui.displayList(listMeans);
-        
+
         do {
             op = menu();
             switch (op) {
@@ -52,7 +48,7 @@ public class DefPaymentMeansUI extends BaseUI{
                     System.out.println(" End create means");
                     break;
                 case 1:
-                    controller.createMeansCash();
+                    defcontroller.createMeansCash();
                     System.out.println("Mean successfully created");
                     break;
                 case 2:
@@ -68,10 +64,11 @@ public class DefPaymentMeansUI extends BaseUI{
                     System.out.println("Mean successfully created");
                     break;
                 case 5:
+                    listMeans = defcontroller.ListAllMeans();
                     displayList(listMeans);
                     break;
                 case 6:
-                    controller.deleteMeans();
+                    defcontroller.deleteMeans();
                     System.out.println("Mean successfully deleted");
                     break;
                 default:
@@ -93,40 +90,40 @@ public class DefPaymentMeansUI extends BaseUI{
         int op = Console.readInteger("Choose an option");
         return op;
     }
-    
-    public void displayList(List<PaymentMeans> listMeans){
-        int i=0;
+
+    public void displayList(List<PaymentMeans> listMeans) {
+        int i = 0;
         System.out.println("List of Payment Means\n");
         for (PaymentMeans payMean : listMeans) {
-            i=i+1;
-            System.out.println("Mean "+i+"\n" + payMean);
+            i = i + 1;
+            System.out.println("Mean " + i + "\n" + payMean);
         }
     }
 
     public void createMeansCreditUI() {
-        DefPaymentMeansController controller = new DefPaymentMeansController();
+        DefPaymentMeansController defcontroller = new DefPaymentMeansController();
         System.out.println("* * *  DEFINE A CREDIT CARD  * * *\n");
         String desc = Console.readLine("Description:");
         int num = Console.readInteger("Number:");
         String bank = Console.readLine("Bank:");
-        controller.createMeansCredit(num, desc, bank);
+        defcontroller.createMeansCredit(num, desc, bank);
     }
 
     public void createMeansDebitUI() {
-        DefPaymentMeansController controller = new DefPaymentMeansController();
+        DefPaymentMeansController defcontroller = new DefPaymentMeansController();
         System.out.println("* * *  DEFINE A DEBIT CARD  * * *\n");
         String desc = Console.readLine("Description:");
         int num = Console.readInteger("Number:");
         String bank = Console.readLine("Bank:");
-        controller.createMeansDebit(num, desc, bank);
+        defcontroller.createMeansDebit(num, desc, bank);
     }
 
     public void createMeansChequeUI() {
-        DefPaymentMeansController controller = new DefPaymentMeansController();
+        DefPaymentMeansController defcontroller = new DefPaymentMeansController();
         System.out.println("* * *  DEFINE A CHEQUE * * *\n");
         String desc = Console.readLine("Description:");
         int num = Console.readInteger("Number:");
         String bank = Console.readLine("Bank:");
-        controller.createMeansCheque(num, desc, bank);
+        defcontroller.createMeansCheque(num, desc, bank);
     }
-}
+    }

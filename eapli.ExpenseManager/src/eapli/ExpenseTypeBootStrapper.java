@@ -5,18 +5,19 @@
 package eapli;
 
 import Model.ExpenseType;
-import Persistence.ExpenseTypeRepository;
 import Persistence.IExpenseTypeRepository;
+import Persistence.ExpenseTypeRepository;
+import Persistence.PersistenceFactory;
 
 /**
  *
  * @author Pedro
  */
 public class ExpenseTypeBootStrapper {
-    
-    static{
-        IExpenseTypeRepository repo = new ExpenseTypeRepository();
-        
+
+    static {
+        IExpenseTypeRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getExpenseTypeRepository();
+
         repo.defineExpenseType(new ExpenseType("vestuário"));
         repo.defineExpenseType(new ExpenseType("refeições"));
         repo.defineExpenseType(new ExpenseType("transportes"));

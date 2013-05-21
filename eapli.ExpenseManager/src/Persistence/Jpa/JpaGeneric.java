@@ -22,7 +22,7 @@ import javax.persistence.Query;
 public class JpaGeneric<T, PK extends Serializable> {
 
       static protected EntityManagerFactory emf =
-              Persistence.createEntityManagerFactory("ExpenseManagerSimplePU");
+              Persistence.createEntityManagerFactory("eapli.ExpenseManagerPU");
 
       protected EntityManager getEntityManager() {
             EntityManager entityManager = emf.createEntityManager();

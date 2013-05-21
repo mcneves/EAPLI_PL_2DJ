@@ -4,14 +4,22 @@
  */
 package Model;
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author
  */
+
+@Entity
 public class DebitCard extends PaymentMeans {
 
     private int num;
     private String bank;
+    
+    public DebitCard(){
+        
+    }
 
     public DebitCard(int num, String desc, String bank) {
         super();

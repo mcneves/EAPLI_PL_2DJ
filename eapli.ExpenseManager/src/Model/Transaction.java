@@ -1,19 +1,26 @@
 package Model;
 
 import eapli.util.DateTime;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Locale;
+import javax.persistence.*;
 
 
-//@Entity
-//@Inheritance (strategy=InheritanceType.SINGLE_TABLE)
-public abstract class Transaction {
+@Entity
+@Inheritance (strategy=InheritanceType.SINGLE_TABLE)
+public abstract class Transaction implements Serializable{
     
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
     private String description;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateOccurred;
     private BigDecimal amount;
+    @ManyToOne(cascade = CascadeType.ALL)
     private TransactionType transtype;
     private String comment;
     
@@ -79,5 +86,11 @@ public abstract class Transaction {
     public TransactionType getTranstype() {
         return transtype;
     }
+
+    public int getId() {
+        return id;
+    }
+    
+    
     
 }
