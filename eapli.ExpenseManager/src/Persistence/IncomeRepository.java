@@ -47,5 +47,11 @@ public class IncomeRepository implements IIncomeRepository{
         }
         return copy;
     }
+
+    @Override
+    public IncomeType getByDescription(String desc) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+      
     
 }
