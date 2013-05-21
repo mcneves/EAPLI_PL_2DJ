@@ -5,12 +5,10 @@
 package eapli;
 
 import Model.Expense;
-import Model.ExpenseType;
-import Model.PaymentMeans;
-import Persistence.ExpenseRepository;
-import Persistence.ExpenseTypeRepository;
 import Persistence.IExpenseRepository;
+import Persistence.ExpenseRepository;
 import Persistence.IExpenseTypeRepository;
+import Persistence.ExpenseTypeRepository;
 import Persistence.IPaymentMeansRepository;
 import Persistence.PaymentMeansRepository;
 import Persistence.PersistenceFactory;
@@ -26,20 +24,8 @@ public class ExpenseBootstarpper {
         IExpenseRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getExpenseRepository();
         IExpenseTypeRepository trepo = PersistenceFactory.getInstance().buildRepositoryFactory().getExpenseTypeRepository();
         IPaymentMeansRepository prepo = PersistenceFactory.getInstance().buildRepositoryFactory().getPaymentMeansRepository();
-       
-       
 
-       /* ExpenseType vec[] = new ExpenseType[4];
-        PaymentMeans arr[] = new PaymentMeans[7];
 
-        for (int i = 0; i < 7; i++) {
-            while (i < 4) {
-                vec[i] = trepo.ListAllTypes().get(i);
-            }
-            arr[i] = prepo.getAllMeans().get(i);
-        }*/
-
-   
         repo.saveExpense(new Expense("Autocarro", 2013, 3, 4, new BigDecimal(2.4), trepo.ListAllTypes().get(2), "", prepo.getAllMeans().get(1)));
         repo.saveExpense(new Expense("Almoço", 2013, 3, 5, new BigDecimal(12.4), trepo.ListAllTypes().get(1), "", prepo.getAllMeans().get(2)));
         repo.saveExpense(new Expense("Sapatilhas", 2013, 3, 4, new BigDecimal(123.4), trepo.ListAllTypes().get(0), "", prepo.getAllMeans().get(4)));
@@ -47,4 +33,3 @@ public class ExpenseBootstarpper {
 
     }
 }
-
