@@ -11,6 +11,7 @@ import Persistence.ExpenseRepository;
 import java.util.List;
 import Model.MonthExpensesByType;
 import Persistence.ExpenseTypeRepository;
+import Persistence.PersistenceRegistry;
 import java.util.ArrayList;
 
 /**
@@ -25,14 +26,15 @@ public class ConsultMonthlyExpensesController {
   
     public List<MonthExpensesByType> getMonthExpensesByType(int month){
           
-        ShowExpensesController controller = new ShowExpensesController();
-        List<Expense> listaTotal = controller.getAllExpenses();
+        //ShowExpensesController controller = new ShowExpensesController();
+        List<Expense> listaTotal = PersistenceRegistry.getInstance().expenseRepository().getAllExpenses();
         ExpenseRecord recorder = new ExpenseRecord(listaTotal);
-        ExpenseTypeRepository repository = new ExpenseTypeRepository();
+        //ExpenseTypeRepository repository = new ExpenseTypeRepository();
+        
         
         
         List<Expense> monthExpenses = recorder.getListOfExpensesMonth(month);
-        List<ExpenseType> expensesTypes = repository.ListAllTypes();
+        List<ExpenseType> expensesTypes = PersistenceRegistry.getInstance().expenseTypeRepository().ListAllTypes();
         
         List<MonthExpensesByType> listMonthExpensesByType = new ArrayList<MonthExpensesByType>();
         
