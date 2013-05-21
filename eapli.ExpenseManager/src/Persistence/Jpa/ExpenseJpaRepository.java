@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
  *
  * @author i060752
  */
-public class ExpenseJpaRepository extends JpaGeneric<Expense, Long> implements IExpenseRepository {
+public class ExpenseJpaRepository extends JpaGeneric<Expense, Integer> implements IExpenseRepository {
     
       @Override
       public void saveExpense(Expense exp){
