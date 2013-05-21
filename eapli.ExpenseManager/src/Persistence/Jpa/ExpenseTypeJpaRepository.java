@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author i060752
  */
-public class ExpenseTypeJpaRepository extends JpaGeneric<ExpenseType, Long> implements IExpenseTypeRepository{
+public class ExpenseTypeJpaRepository extends JpaGeneric<ExpenseType, Integer> implements IExpenseTypeRepository{
       @Override
       public void defineExpenseType(ExpenseType eT){
             save(eT);

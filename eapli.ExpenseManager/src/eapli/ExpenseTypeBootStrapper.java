@@ -17,7 +17,7 @@ public class ExpenseTypeBootStrapper {
 
     static {
         IExpenseTypeRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getExpenseTypeRepository();
-
+        
         repo.defineExpenseType(new ExpenseType("vestuário"));
         repo.defineExpenseType(new ExpenseType("refeições"));
         repo.defineExpenseType(new ExpenseType("transportes"));
