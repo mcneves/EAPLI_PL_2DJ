@@ -17,4 +17,5 @@ public interface IIncomeRepository {
     List<Income> getAllIncome();
 
     Income getLastIncome();
+    IncomeType getByDescription(String desc);
 }

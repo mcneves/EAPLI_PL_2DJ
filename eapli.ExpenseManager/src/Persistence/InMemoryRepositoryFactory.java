@@ -24,4 +24,15 @@ public class InMemoryRepositoryFactory implements IRepositoryFactory{
     public IPaymentMeansRepository getPaymentMeansRepository(){
         return new Persistence.InMemory.PaymentMeansInMemoryRepository();
     }
+    
+    @Override
+    public IIncomeRepository getIncomeRepository(){
+            return new Persistence.InMemory.IncomeInMemoryRepository();
+    }
+      
+    @Override
+    public IIncomeTypeRepository getIncomeTypeRepository(){
+        return new Persistence.InMemory.IncomeTypeInMemoryRepository();
+    }
+    
 }
