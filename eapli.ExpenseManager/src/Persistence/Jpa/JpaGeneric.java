@@ -84,7 +84,7 @@ public class JpaGeneric<T, PK extends Serializable> {
                         em.persist(entity);
                         tx.commit();
                   } catch (PersistenceException ex) {
-                        tx.rollback();
+                        //tx.rollback();
                         // we need to set up a new transaction if persist raises an exception
                         tx = em.getTransaction();
                         tx.begin();

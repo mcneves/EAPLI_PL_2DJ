@@ -38,26 +38,21 @@ public class ExpenseRegisterUI extends BaseUI{
             double value = Console.readDouble("\nAmount:");
             BigDecimal amount = new BigDecimal(value);
             System.out.println("\nExpense Type:");
+
+            List<ExpenseType> list=controller.ListAllTypes();
+
             
-            ExpenseTypeController expTypeController=new ExpenseTypeController();
-            List<ExpenseType> list=expTypeController.ListAllTypes();
-            
-            ExpenseTypeUI ui = new ExpenseTypeUI();
-            
-            ui.displayList(list);
+            displayList(list);
             
             int op=Console.readInteger("\nChoose an option");
             
             ExpenseType exptype=new ExpenseType(list.get(op-1));
             
             System.out.println("\nPayment mean:");
+
+            List<PaymentMeans> listMeans = controller.ListAllMeans();
             
-            DefPaymentMeansController dpmc = new DefPaymentMeansController();
-            List<PaymentMeans> listMeans = dpmc.ListAllMeans();
-            
-            DefPaymentMeansUI defui = new DefPaymentMeansUI();
-            
-            defui.displayList(listMeans);
+            displayListPM(listMeans);
             
             int opPM = Console.readInteger("\nChoose an option");
             
@@ -72,16 +67,10 @@ public class ExpenseRegisterUI extends BaseUI{
                 comment=Console.readLine("");
             }
             
-            ExpenseRegisterController expRegController = new ExpenseRegisterController();
-            expRegController.registerExpense(desc, date, amount, exptype, comment, pay);
+            controller.registerExpense(desc, date, amount, exptype, comment, pay);
 
             System.out.println("expense recorded.");
       }
-      
-//      public BaseController controller()
-//      {
-//          return expRegController;
-//      }
       
       @Override
       public void header()
@@ -94,6 +83,25 @@ public class ExpenseRegisterUI extends BaseUI{
         public PaymentMeansImpl(PaymentMeans get) {
             super();
         }
+    }    
+    public void displayList(List<ExpenseType> list)
+    {
+        int i=0;
+        System.out.println("List of Types\n");
+        for (ExpenseType exptype : list) {
+            i=i+1;
+            System.out.println("Type "+i+"\n" + exptype);
+        }
     }
-      
+    
+      public void displayListPM(List<PaymentMeans> listMeans) {
+        int i = 0;
+        System.out.println("List of Payment Means\n");
+        for (PaymentMeans payMean : listMeans) {
+            i = i + 1;
+            System.out.println("Mean " + i + "\n" + payMean);
+        }
+    }
+     
+    
 }

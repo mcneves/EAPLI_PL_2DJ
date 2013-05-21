@@ -21,8 +21,8 @@ public class Expense implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String description;
     private int id;
+    private String description;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateOccurred;
     private BigDecimal amount;

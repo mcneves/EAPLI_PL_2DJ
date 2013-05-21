@@ -24,8 +24,8 @@ public class ExpenseManager {
         ExpenseTypeBootStrapper bootType = new ExpenseTypeBootStrapper(); 
         PaymentMeansBootStrapper bootMean=new PaymentMeansBootStrapper();
         ExpenseBootstarpper boot = new ExpenseBootstarpper();
-        IncomeBootstrapper bootIncome = new IncomeBootstrapper();
-        IncomeTypeBootstrapper bootinctype = new IncomeTypeBootstrapper();
+        //IncomeBootstrapper bootIncome = new IncomeBootstrapper();
+        //IncomeTypeBootstrapper bootinctype = new IncomeTypeBootstrapper();
         
         
         MainMenu menu = new MainMenu();
