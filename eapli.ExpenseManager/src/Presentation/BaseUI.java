@@ -5,6 +5,7 @@
 package Presentation;
 
 import Controllers.BaseController;
+import Model.AccountServices;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -40,6 +41,11 @@ public abstract class BaseUI
         NumberFormat n = NumberFormat.getCurrencyInstance(Locale.FRANCE);
         System.out.println("This week's expenditures  are: " + n.format(wb.doubleValue()));
         System.out.println("This months' expenditures are: " + n.format(mb.doubleValue()));
+        
+        //adicionado print com o balance
+        AccountServices accServ = new AccountServices();
+        System.out.println("Balance : " + accServ.getBalance());
+        
     }
     
     
