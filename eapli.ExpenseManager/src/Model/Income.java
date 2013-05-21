@@ -6,20 +6,20 @@ import java.util.Date;
 import javax.persistence.Entity;
 
 @Entity
-public class Income extends Transaction{
+public class Income extends Movement{
 
     protected Income() {
     }
 
-    public Income(Transaction trans) {
+    public Income(Movement trans) {
         super(trans);
     }
 
-    public Income(String description, Date dateOccurred, BigDecimal amount, TransactionType transtype, String comment) {
+    public Income(String description, Date dateOccurred, BigDecimal amount, MovementType transtype, String comment) {
         super(description, dateOccurred, amount, transtype, comment);
     }
 
-    public Income(String description, int year, int month, int day, BigDecimal amount, TransactionType transtype, String comment) {
+    public Income(String description, int year, int month, int day, BigDecimal amount, MovementType transtype, String comment) {
         super(description, year, month, day, amount, transtype, comment);
     }
 

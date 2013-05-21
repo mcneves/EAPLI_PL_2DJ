@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance (strategy=InheritanceType.SINGLE_TABLE)
-public abstract class Transaction implements Serializable{
+public abstract class Movement implements Serializable{
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -21,14 +21,14 @@ public abstract class Transaction implements Serializable{
     private Date dateOccurred;
     private BigDecimal amount;
     @ManyToOne(cascade = CascadeType.ALL)
-    private TransactionType transtype;
+    private MovementType transtype;
     private String comment;
     
-    protected Transaction() {
+    protected Movement() {
         
     }   
 
-    public Transaction(String description, Date dateOccurred, BigDecimal amount, TransactionType transtype, String comment) {
+    public Movement(String description, Date dateOccurred, BigDecimal amount, MovementType transtype, String comment) {
         if (description == null || dateOccurred == null || amount == null) {
             throw new IllegalArgumentException();
         }
@@ -43,11 +43,11 @@ public abstract class Transaction implements Serializable{
         this.comment=comment;
     }
 
-    public Transaction(String description, int year, int month, int day, BigDecimal amount, TransactionType transtype, String comment) {
+    public Movement(String description, int year, int month, int day, BigDecimal amount, MovementType transtype, String comment) {
         this(description, DateTime.newDate(year, month, day), amount, transtype, comment);
     }
 
-    public Transaction(Transaction trans) {
+    public Movement(Movement trans) {
         description = trans.description;
         dateOccurred=trans.dateOccurred;
         amount = trans.amount;
@@ -83,7 +83,7 @@ public abstract class Transaction implements Serializable{
         return description;
     }
 
-    public TransactionType getTranstype() {
+    public MovementType getTranstype() {
         return transtype;
     }
 
