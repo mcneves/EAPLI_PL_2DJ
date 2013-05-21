@@ -25,7 +25,7 @@ public class MainMenu {
                     break;
                 case 1:
                     ExpenseRegisterUI ui = new ExpenseRegisterUI();
-                    ui.run();
+                    ui.show();
                     break;
                 case 2:
                     ShowExpensesUI showExpensesUI = new ShowExpensesUI();
