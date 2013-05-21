@@ -50,7 +50,7 @@ public class ShowIncomesUI extends BaseUI{
                               break;
                         case 2:
                                  income = controller.getLastIncome();
-                              System.out.println("Last Income"+income);
+                              System.out.println("Last Income\n"+income);
                               break;
                         default:
                               System.out.println("Wrong option. Please repeat");
