@@ -6,6 +6,10 @@ import javax.persistence.Entity;
 @Entity
 public class IncomeType extends TransactionType{
 
+    public IncomeType() {
+    }
+
+    
     public IncomeType(String description) {
         super(description);
     }
