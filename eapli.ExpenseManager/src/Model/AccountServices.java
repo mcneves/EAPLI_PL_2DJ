@@ -4,6 +4,7 @@
  */
 package Model;
 
+import Controllers.AccountServicesController;
 import Persistence.PersistenceFactory;
 import java.math.BigDecimal;
 import java.util.List;
@@ -19,8 +20,11 @@ public class AccountServices {
 
     public BigDecimal getBalance() {
         BigDecimal amount = new BigDecimal("0"), expenseCount = new BigDecimal("0"), incomeCount = new BigDecimal("0");
-        List<Expense> listExp = PersistenceFactory.getInstance().buildRepositoryFactory().getExpenseRepository().getAllExpenses();
-        List<Income> listIncome = PersistenceFactory.getInstance().buildRepositoryFactory().getIncomeRepository().getAllIncome();
+       
+        AccountServicesController accSevController = new AccountServicesController();
+        
+        List<Expense> listExp = accSevController.getAllExpenses();
+        List<Income> listIncome = accSevController.getAllIncomes();
 
         for (Expense exp : listExp) {
             expenseCount = expenseCount.add(exp.getAmount());
