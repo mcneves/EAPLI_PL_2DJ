@@ -25,6 +25,8 @@ public class PaymentMeansJpaRepository extends JpaGeneric<PaymentMeans, Integer>
       
      @Override
      public void deleteMeans(int del){
-//            remove(del);
+         PaymentMeans pay;
+         pay=read(del);
+         delete(pay);
       }
 }
