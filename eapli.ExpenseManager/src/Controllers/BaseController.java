@@ -7,6 +7,8 @@ package Controllers;
 import Model.Expense;
 import Model.ExpenseRecord;
 import Persistence.ExpenseRepository;
+import Persistence.IExpenseRepository;
+import Persistence.PersistenceFactory;
 import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -26,7 +28,7 @@ public class BaseController
             ExpenseRecord expenseRecord;
             BigDecimal weekExpenditure = new BigDecimal(0);
             List<Expense> expenseList;
-            ExpenseRepository repo = new ExpenseRepository();
+            IExpenseRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getExpenseRepository();
             expenseList = repo.getAllExpenses();
             expenseRecord = new ExpenseRecord(expenseList);
             weekExpenditure = expenseRecord.getThisWeekExpenditure();
@@ -37,7 +39,7 @@ public class BaseController
             ExpenseRecord expenseRecord;
             BigDecimal monthExpenditure = new BigDecimal(0);;
             List<Expense> expenseList;
-            ExpenseRepository repo = new ExpenseRepository();
+            IExpenseRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getExpenseRepository();
             expenseList = repo.getAllExpenses();
             expenseRecord = new ExpenseRecord(expenseList);
             monthExpenditure = expenseRecord.getThisMonthExpenditure();
