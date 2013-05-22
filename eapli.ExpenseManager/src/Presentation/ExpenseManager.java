@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Model.AccountServices;
 import eapli.ExpenseBootstarpper;
 import eapli.ExpenseTypeBootStrapper;
 import eapli.PaymentMeansBootStrapper;
@@ -27,6 +28,9 @@ public class ExpenseManager {
         IncomeBootstrapper bootIncome = new IncomeBootstrapper();
         IncomeTypeBootstrapper bootinctype = new IncomeTypeBootstrapper();
         
+        //tenste do metodo para mostrar saldo
+        //Model.AccountServices accServ = new AccountServices();
+        //System.out.println(accServ.getBalance());
         
         MainMenu menu = new MainMenu();
         menu.mainLoop();
