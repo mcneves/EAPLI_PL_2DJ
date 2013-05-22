@@ -14,7 +14,7 @@ import java.math.BigDecimal;
  */
 public class IncomeBootstrapper {
     static {
-        IIncomeRepository repo = new IncomeRepository();
+        IIncomeRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getIncomeRepository();
 
         repo.saveIncome(new Income("Ordenado", 2013, 3, 4, new BigDecimal(567.4),new IncomeType("Salário"),""));
         repo.saveIncome(new Income("Abono", 2013, 3, 5, new BigDecimal(123.4),new IncomeType("Subsidio"),""));

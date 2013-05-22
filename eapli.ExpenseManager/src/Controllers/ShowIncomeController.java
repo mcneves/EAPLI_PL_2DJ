@@ -6,6 +6,7 @@ package Controllers;
 
 import Model.Income;
 import Persistence.IncomeRepository;
+import Persistence.PersistenceFactory;
 import Persistence.PersistenceRegistry;
 import java.util.List;
 
@@ -19,10 +20,11 @@ public class ShowIncomeController extends BaseController{
       }
 
       public List<Income> getAllIncome() {
-            return PersistenceRegistry.getInstance().incomeRepository().getAllIncome();
+          return PersistenceFactory.getInstance().buildRepositoryFactory().getIncomeRepository().getAllIncome();
+            
       }
 
       public Income getLastIncome() {
-            return PersistenceRegistry.getInstance().incomeRepository().getLastIncome();
+            return PersistenceFactory.getInstance().buildRepositoryFactory().getIncomeRepository().getLastIncome();
       }
 }

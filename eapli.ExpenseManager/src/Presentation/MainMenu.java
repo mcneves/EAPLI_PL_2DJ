@@ -29,7 +29,7 @@ public class MainMenu {
                     break;
                 case 2:
                     ShowExpensesUI showExpensesUI = new ShowExpensesUI();
-                    showExpensesUI.loop();
+                    showExpensesUI.run();
                     break;
                 case 3:
                     ExpenseTypeUI expenseTypeUI = new ExpenseTypeUI();

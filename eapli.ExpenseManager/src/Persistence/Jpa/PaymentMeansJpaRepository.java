@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author i060752
  */
-public class PaymentMeansJpaRepository extends JpaGeneric<PaymentMeans, Long> implements IPaymentMeansRepository{
+public class PaymentMeansJpaRepository extends JpaGeneric<PaymentMeans, Integer> implements IPaymentMeansRepository{
       @Override
       public void saveMeans(PaymentMeans pm){
             save(pm);

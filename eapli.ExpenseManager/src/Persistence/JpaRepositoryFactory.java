@@ -24,4 +24,13 @@ public class JpaRepositoryFactory implements IRepositoryFactory{
     public IPaymentMeansRepository getPaymentMeansRepository(){
         return new Persistence.Jpa.PaymentMeansJpaRepository();
     }
+        @Override
+    public IIncomeRepository getIncomeRepository(){
+            return new Persistence.InMemory.IncomeInMemoryRepository();
+    }
+      
+    @Override
+    public IIncomeTypeRepository getIncomeTypeRepository(){
+        return new Persistence.InMemory.IncomeTypeInMemoryRepository();
+    }
 }

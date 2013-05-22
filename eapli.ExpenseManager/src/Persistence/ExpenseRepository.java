@@ -22,7 +22,7 @@ public class ExpenseRepository implements IExpenseRepository {
     public ExpenseRepository() {
     }
 
-      @Override
+    @Override
     public void saveExpense(Expense exp) {
         if (exp == null) {
             throw new IllegalArgumentException();
@@ -31,12 +31,12 @@ public class ExpenseRepository implements IExpenseRepository {
 
     }
 
-      @Override
+    @Override
     public List<Expense> getAllExpenses() {
         return Collections.unmodifiableList(listExpense);
     }
 
-      @Override
+    @Override
     public Expense getLastExpense() {
         Expense exp = null;
         Expense copy = null;
@@ -54,5 +54,4 @@ public class ExpenseRepository implements IExpenseRepository {
     public ExpenseType getByDescription(String desc) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-      
 }
