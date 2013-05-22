@@ -1,0 +1,15 @@
+05-22 16:55:16 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSE" not found; SQL statement:
+ALTER TABLE EXPENSE DROP CONSTRAINT FK_EXPENSE_PAY_MEANSID [42102-171]
+05-22 16:55:16 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSE" not found; SQL statement:
+ALTER TABLE EXPENSE DROP CONSTRAINT FK_EXPENSE_EXPTYPE_ID [42102-171]
+05-22 16:55:16 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "PAYMENTMEANS" not found; SQL statement:
+DROP TABLE PAYMENTMEANS [42102-171]
+05-22 16:55:16 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSE" not found; SQL statement:
+DROP TABLE EXPENSE [42102-171]
+05-22 16:55:16 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSETYPE" not found; SQL statement:
+DROP TABLE EXPENSETYPE [42102-171]
