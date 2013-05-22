@@ -2,25 +2,25 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Persistence;
-
-import Model.*;
+package Persistence.InMemory;
+import Model.Income;
+import Model.IncomeType;
+import Persistence.IIncomeRepository;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 /**
  *
  * @author André Pinto
  */
-public class IncomeRepository implements IIncomeRepository{
+public class IncomeInMemoryRepository implements IIncomeRepository{
     
-     private static List<Income> listIncome = new ArrayList<>();
+    private static List<Income> listIncome = new ArrayList<>();
 
-    public IncomeRepository() {
+    public IncomeInMemoryRepository() {
     }
-
-      @Override
+    
+    @Override
     public void saveIncome(Income inc) {
         if (inc == null) {
             throw new IllegalArgumentException();
@@ -28,13 +28,13 @@ public class IncomeRepository implements IIncomeRepository{
         listIncome.add(inc);
 
     }
-
-      @Override
+    
+    @Override
     public List<Income> getAllIncome() {
         return Collections.unmodifiableList(listIncome);
     }
-
-      @Override
+    
+    @Override
     public Income getLastIncome() {
         Income inc = null;
         Income copy = null;
@@ -47,11 +47,10 @@ public class IncomeRepository implements IIncomeRepository{
         }
         return copy;
     }
-
-    @Override
-    public IncomeType getByDescription(String desc) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-      
     
+    
+    @Override
+    public IncomeType getByDescription(String desc){
+        return null;
+    }
 }

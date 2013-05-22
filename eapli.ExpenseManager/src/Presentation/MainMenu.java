@@ -51,6 +51,14 @@ public class MainMenu {
                     ShowIncomesUI showIncomeUI = new ShowIncomesUI();
                     showIncomeUI.show();
                     break;
+                case 8:
+                    ConsultMonthlyExpensesUI expCon = new ConsultMonthlyExpensesUI();
+                    expCon.show();
+                    break;
+                case 9:
+                    ConsultMonthlyExpensesUI expConG = new ConsultMonthlyExpensesUI();
+                    expConG.displayGraph();
+                    break;
             }
         } while (op != 0);
 
@@ -67,6 +75,8 @@ public class MainMenu {
         System.out.println("5. Consult Expenses a Month");
         System.out.println("6. Register an income");
         System.out.println("7. Show incomes");
+        System.out.println("8. Consult Expenses a Month by type");
+        System.out.println("9. Display Expenses a Month by type graph");
         System.out.println("0. Exit\n\n");
 
         int option = Console.readInteger("Please choose an option");

@@ -67,10 +67,10 @@ public class DefPaymentMeansUI extends BaseUI
                     listMeans = defcontroller.ListAllMeans();
                     displayList(listMeans);
                     break;
-                case 6:
-                    defcontroller.deleteMeans();
-                    System.out.println("Mean successfully deleted");
-                    break;
+//                case 6:
+//                    defcontroller.deleteMeans();
+//                    System.out.println("Mean successfully deleted");
+//                    break;
                 default:
                     System.out.println("Wrong option. Please repeat");
                     break;

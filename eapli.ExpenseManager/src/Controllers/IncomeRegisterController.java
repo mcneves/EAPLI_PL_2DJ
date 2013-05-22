@@ -6,7 +6,9 @@ package Controllers;
 
 import Model.Income;
 import Model.IncomeType;
+import Persistence.IIncomeRepository;
 import Persistence.IncomeRepository;
+import Persistence.PersistenceFactory;
 import Persistence.PersistenceRegistry;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -21,6 +23,8 @@ public class IncomeRegisterController extends BaseController{
 
       public void registerIncome(String desc, Date date, BigDecimal amount, IncomeType exptype, String comment) {
             Income income = new Income(desc, date, amount, exptype, comment);
-            PersistenceRegistry.getInstance().incomeRepository().saveIncome(income);
+            IIncomeRepository repo = PersistenceFactory.getInstance().buildRepositoryFactory().getIncomeRepository();
+            repo.saveIncome(income);
+            
       }
 }

@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.ConsultMonthlyExpensesController;
 import Controllers.ExpenseTypeController;
 import Model.Expense;
@@ -18,12 +19,18 @@ import java.util.*;
  *
  * @author i121096
  */
-public class ConsultMonthlyExpensesUI {
+public class ConsultMonthlyExpensesUI extends BaseUI {
+    
+    private BaseController controller = new ConsultMonthlyExpensesController();
     
     public ConsultMonthlyExpensesUI(){}
     
     public void run(){
     
+        displayResults();
+    }
+    
+    public void displayResults(){
         int month = Console.readInteger("Introduce the month you want to consult:" );
         String texto;
         ConsultMonthlyExpensesController controller = new ConsultMonthlyExpensesController();
@@ -66,5 +73,15 @@ public class ConsultMonthlyExpensesUI {
             texto += "*";
         }
         return texto;
+    }
+
+    @Override
+    protected BaseController controller() {
+        return controller;
+    }
+
+    @Override
+    public void header() {
+       System.out.println("Expense Consult a Month with agregation by type");
     }
 }
