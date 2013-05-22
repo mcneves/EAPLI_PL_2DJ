@@ -13,6 +13,7 @@ import java.util.List;
  *
  * @author Pedro
  */
+@Deprecated
 public class ExpenseTypeRepository implements IExpenseTypeRepository{
     
     private static List<ExpenseType> listExpenseType = new ArrayList();

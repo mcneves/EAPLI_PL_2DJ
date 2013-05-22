@@ -14,6 +14,7 @@ import java.util.List;
  *
  * @author
  */
+@Deprecated
 public class ExpenseRepository implements IExpenseRepository {
     // class member
 

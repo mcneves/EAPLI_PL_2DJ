@@ -13,6 +13,7 @@ import java.util.List;
  *
  * @author
  */
+@Deprecated
 public class PaymentMeansRepository implements IPaymentMeansRepository{
 
     private static List<PaymentMeans> listMeans = new ArrayList<>();

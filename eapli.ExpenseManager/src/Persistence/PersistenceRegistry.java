@@ -8,6 +8,7 @@ package Persistence;
  *
  * @author i060752
  */
+@Deprecated
 public class PersistenceRegistry {
     
     //SINGLETON

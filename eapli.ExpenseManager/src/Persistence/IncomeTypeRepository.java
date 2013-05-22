@@ -13,6 +13,7 @@ import java.util.List;
  *
  * @author André Pinto
  */
+@Deprecated
 public class IncomeTypeRepository implements IIncomeTypeRepository{
     private static List<IncomeType> listIncomeType = new ArrayList();
     
