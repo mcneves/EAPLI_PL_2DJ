@@ -1,0 +1,45 @@
+title Sequence Diagram - "Expense Type Register"
+User -> MainMenu: choose "expense type register"
+MainMenu -> ExpenseTypeRegisterUI: create
+
+ExpenseTypeRegisterUI -> +ExpenseTypeRegisterController :create
+MainMenu ->+ ExpenseTypeRegisterUI: show()
+ExpenseTypeRegisterUI ->ExpenseTypeRegisterUI:header()
+ExpenseTypeRegisterUI ->+ExpenseTypeRegisterUI:run()
+ExpenseTypeRegisterUI ->+ ExpenseTypeRegisterController:listAllExpenseTypes()
+
+ExpenseTypeRegisterController -> PersistenceFactory:getInstance()
+ExpenseTypeRegisterController ->PersistenceFactory:buildRepositoryFactory
+PersistenceFactory->IRepositoryFactory:create
+ExpenseTypeRegisterController->IRepositoryFactory:getExpenseTypeRepository()
+IRepositoryFactory->ExpenseTypeRepository:create()
+
+
+ExpenseTypeRegisterController->+ExpenseTypeRepository: getAllExpenseTypes()
+ExpenseTypeRepository -> -ExpenseTypeRegisterController: list
+ExpenseTypeRegisterController -> -ExpenseTypeRegisterUI: list
+ExpenseTypeRegisterUI->ExpenseTypeRegisterUI: displayList()
+loop new expenseType
+User -> ExpenseTypeRegisterUI: description
+ExpenseTypeRegisterUI -> +ExpenseTypeRegisterController : registerExpenseType(description)
+ExpenseTypeRegisterController ->"eT:ExpenseType": create(eT)
+
+ExpenseTypeRegisterController -> PersistenceFactory:getInstance()
+ExpenseTypeRegisterController ->PersistenceFactory:buildRepositoryFactory
+PersistenceFactory->IRepositoryFactory:create
+ExpenseTypeRegisterController->IRepositoryFactory:getExpenseTypeRepository()
+IRepositoryFactory->ExpenseTypeRepository:create()
+
+
+ExpenseTypeRegisterController -> +ExpenseTypeRepository: saveExpenseType(eT)
+ExpenseTypeRepository -> -ExpenseTypeRegisterController:
+
+ExpenseTypeRegisterController -> +ExpenseTypeRepository: getAllExpenseTypes()
+ExpenseTypeRepository -> -ExpenseTypeRegisterController: list
+
+ExpenseTypeRegisterController -> -ExpenseTypeRegisterUI: list
+ExpenseTypeRegisterUI->ExpenseTypeRegisterUI: displayList()
+end
+
+ExpenseTypeRegisterUI ->+ExpenseTypeRegisterUI:showBalances()
+
